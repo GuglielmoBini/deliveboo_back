@@ -3,7 +3,7 @@ return[
     [
        'name'=>'Antonino',  
        'surname'=>'Canavacciuolo',  
-       'vat_number'=>'01234568919',  
+       'vat_number'=>'01234568911',  
        'email'=>'antonio.canavacciulo@deliveboo.it',  
        'password'=>'password',  
     ],
@@ -35,31 +35,31 @@ return[
      ],[
         'name'=>'Gianfranco',  
         'surname'=>'Vissani',  
-        'vat_number'=>'012345378919',  
+        'vat_number'=>'01234537899',  
         'email'=>'gianfranco.vissani@deliveboo.it',  
         'password'=>'password',  
      ],[
         'name'=>'Xin',  
         'surname'=>'Zhao',  
-        'vat_number'=>'012345378919',  
+        'vat_number'=>'01234507899',  
         'email'=>'xin.zhao@deliveboo.it',  
         'password'=>'password',
      ],[
       'name'=>'Chin',  
       'surname'=>'Bhan',  
-      'vat_number'=>'012335378919',  
+      'vat_number'=>'01233537819',  
       'email'=>'chin.bhan@deliveboo.it',  
       'password'=>'password',
       ],[
          'name'=>'Mario',  
          'surname'=>'Ottani',  
-         'vat_number'=>'012245378919',  
+         'vat_number'=>'01225378919',  
          'email'=>'mario.ottani@deliveboo.it',  
          'password'=>'password',
       ],[
          'name'=>'Chin',  
          'surname'=>'Chan',  
-         'vat_number'=>'012245378959',  
+         'vat_number'=>'01224537895',  
          'email'=>'chin.chan@deliveboo.it',  
          'password'=>'password',
       ]

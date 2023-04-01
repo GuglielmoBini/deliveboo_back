@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('surname', 50);
-            $table->char('vat_number', 11)->unique();
+            $table->string('vat_number', 11)->unique();
             $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

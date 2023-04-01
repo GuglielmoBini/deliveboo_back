@@ -13,18 +13,17 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $emails = ['1@h.it', '2@h.it', '3@h.it', '4@h.it', '5@h.it'];
-        $numbers = ['12345678986', '12345678980', '12345678981', '12345678982', '12345678983'];
+        
 
-
-        for ($i = 0; $i < 5; $i++) {
-            $user = new User();
-            $user->name = 'Guglielmo';
-            $user->surname = 'Bini';
-            $user->vat_number = $numbers[$i];
-            $user->email = $emails[$i];
-            $user->password = 'password';
-            $user->save();
+        $all_users = config('users');
+        foreach ($all_users as $user) {
+            $new_user = new User();
+            $new_user->name = $user['name'];
+            $new_user->surname = $user['surname'];
+            $new_user->vat_number = $user['vat_number'];
+            $new_user->email =  $user['email'];
+            $new_user->password =  $user['password'];
+            $new_user->save();
         }
     }
 }
