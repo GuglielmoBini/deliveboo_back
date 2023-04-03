@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function (){
     // Code below groups all the CRUD's routes
-    Route::resource('restourants', RestaurantController::class);
+    Route::resource('restaurants', RestaurantController::class);
     Route::resource('dishes', DishController::class);
     Route::resource('types', TypeController::class);
     Route::resource('orders', OrderController::class);

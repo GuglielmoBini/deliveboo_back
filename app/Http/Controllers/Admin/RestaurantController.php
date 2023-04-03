@@ -36,7 +36,7 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'users_id' => 'nullable|exists:users,id',
+            'users_id' => 'required|exists:users,id',
             'name' => 'required|string|min:5|max:50',
             'address' => 'required|string|min:5|max:50',
             'description' => 'nullable|string',

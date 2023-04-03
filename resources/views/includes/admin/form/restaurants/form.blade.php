@@ -1,5 +1,3 @@
-<!-- @include('includes.alerts.error') -->
-
 @if($restaurant->exists)
 <!-- form edit -->
 <form action="{{route('admin.restaurants.update', $restaurant->id)}}" method="POST" enctype="multipart/form-data" novalidate>
@@ -13,7 +11,7 @@
     @csrf
     <div class="row my-5">
         <!-- Input for Restaurant's name -->
-        <div class="col">
+        <div class="col-6">
             <h4><label class="form-label" for="restaurant-name">Ristorante</label></h4>
             <input class="form-control @error('name') is-invalid @enderror" type="text" id="restaurant-name" value="{{ old('name', $restaurant->name) }}" name="name" placeholder="Inserisci il nome del tuo ristorante..."  minlength="5" maxlength="50" required>
             @error('name')
@@ -22,7 +20,7 @@
         </div>
 
         <!-- Input for Restaurant's address -->
-        <div class="col">
+        <div class="col-6">
             <h4><label class="form-label" for="restaurant-address">Indirizzo</label></h4>
             <input class="form-control @error('address') is-invalid @enderror" type="text" id="restaurant-address" value="{{ old('address', $restaurant->address) }}" name="address" placeholder="Inserisci l'indirizzo del tuo locale..."  minlength="5" maxlength="50" required>
             @error('address')
@@ -31,7 +29,7 @@
         </div>
 
         <!-- Input to upload image -->
-        <div class="col">
+        <div class="col-12 mt-5">
             <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
             @error('image')
@@ -40,7 +38,7 @@
         </div>
 
         <!-- textarea for Restaurant's description -->
-        <div class="col">
+        <div class="col-12 mt-5">
             <h4><label class="form-label" for="restaurant-description">Descrizione</label></h4>
             <textarea class="form-control @error('description') is-invalid @enderror" id="restaurant-description" name="description" placeholder="Inserisci una brece descrizione del tuo locale..." cols="50" rows="10">{{ old('description', $restaurant->description) }}</textarea>
             @error('description')
