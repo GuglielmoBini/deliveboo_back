@@ -4,50 +4,23 @@
     .container {
         padding: 5px 0px;
         
-        figure {
-            max-width:     100px;
-    
-            img {
-                width: 100%;
-            }
+        img {
+            width: 80px;
         }
-       
-         .navMenu {
-            
-            .logo{
-                line-height: 7px;
-            }
-
-            a {
-                transition: all 0.2s ease-in-out;
-                position: relative;
-                letter-spacing: 1px;
-                text-decoration: none;
-                color: var(--white);
-                // transform: all 0.3s ease-in-out 0.2s;
         
-                &::before {
-                content: attr(data-item);
-                transition: 0.2s;
-                color: var(--secondary);
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 0;
-                overflow: hidden;
-                }
-                
-                &:hover {
-                    // transform: translateY(100px);
-                &::before {
-                    width: 100%;
-                    transition: all 0.3s ease-in-out;
-                }
-                }
-            }
+        a {
+            text-decoration: none;
+            color: var(--white);
+        }
+        
+        h2 {
+            font-size: 60px;
+        }
+
+        .size {
+            font-size: 17px;
         }
     }
 }
+
 
