@@ -29,7 +29,7 @@
         </div>
 
         <!-- Input to upload image -->
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-4">
             <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
             <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
             @error('image')
@@ -38,7 +38,7 @@
         </div>
 
         <!-- textarea for Restaurant's description -->
-        <div class="col-12 mt-5">
+        <div class="col-12 mt-4">
             <h4><label class="form-label" for="restaurant-description">Descrizione</label></h4>
             <textarea class="form-control @error('description') is-invalid @enderror" id="restaurant-description" name="description" placeholder="Inserisci una brece descrizione del tuo locale..." cols="50" rows="10">{{ old('description', $restaurant->description) }}</textarea>
             @error('description')
