@@ -41,6 +41,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center">
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn-secondary me-2">Torna indietro</a>
+                    <button class="btn btn-primary"><i class="fa-solid fa-share-from-square"></i>Conferma</button>
+                </div>
             </form>
     </div>
 @endsection
