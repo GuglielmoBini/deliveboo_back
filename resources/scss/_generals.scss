@@ -1,9 +1,9 @@
 :root {
-    --primary: #FFA83D;
-    --secondary: #4888a8;
-    --tertiary: #99b6c4;
-    --quaternary: #ffd199;
-    --quinary: #FF8330;
+    --p-orange: #FFA83D;
+    --d-blue: #4888a8;
+    --l-blue: #99b6c4;
+    --l-orange: #ffd199;
+    --d-orange: #FF8330;
     --black: #000;
     --white: #fff;
     --text: #111;
@@ -12,11 +12,15 @@
     --ff2: 'Jost', sans-serif;
 }
 
-h1, h2, h3, h4, h5, header     {
+h1,
+h2,
+h3,
+h4,
+h5,
+header {
     font-family: var(--ff1);
 }
 
 body {
     font-family: var(--ff2);
 }
-
