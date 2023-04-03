@@ -11,3 +11,12 @@
     --ff1: 'Ubuntu', sans-serif;
     --ff2: 'Jost', sans-serif;
 }
+
+h1, h2, h3, h4, h5, header     {
+    font-family: var(--ff1);
+}
+
+body {
+    font-family: var(--ff2);
+}
+
