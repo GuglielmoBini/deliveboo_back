@@ -6,7 +6,7 @@
                 <!-- Left Side Of Navbar -->
                 <div class="navMenu d-flex align-items-center">
                     <a class="mx-3 logo d-flex align-items-center" href="{{ route('dashboard') }}">
-                        <img src="img/logo-400x400.png" alt="" class="d-flex align-items-center">
+                        <img src="{{ asset('img/logo-400x400.png') }}" alt="logo deliveboo" class="d-flex align-items-center">
                         <h2 class="m-0 ms-2 p-0 fw-bold">DeliveBoo</h2>
                     </a>
                 </div>
