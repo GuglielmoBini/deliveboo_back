@@ -14,17 +14,17 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto d-flex justify-content-end align-items-center mt-3">
                     @auth
-                    <a class="p-0 fw-semibold size me-3 hover-underline-animation" href="">showRestaurant()</a>
-                    <a class="p-0 fw-semibold size me-3 hover-underline-animation" href="{{ route('admin.orders.index') }}">showOrders()</a>
+                    <!-- <a class="p-0 size me-3 hover-underline-animation" href="">showRestaurant()</a> -->
+                    <a class="p-0 size me-3 hover-underline-animation" href="{{ route('admin.orders.index') }}">showOrders()</a>
                     @endauth
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('login') }}">logIn()</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('register') }}">createAccount()</a>
                     </li>
                     @endif
                     @else
