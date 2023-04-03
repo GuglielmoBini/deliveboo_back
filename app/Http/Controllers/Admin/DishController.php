@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -61,8 +63,13 @@ class DishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Dish $dish)
     {
-        //
+        if ($dish->image) Storage::delete($dish->image);
+
+        $dish->delete();
+        return to_route('admin.dishes.index')
+            // ->with('deleted-allert', "Il piatto $dish->name è stato eliminato")
+        ;
     }
 }
