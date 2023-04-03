@@ -13,12 +13,15 @@ class RestaurantSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i < 6; $i++) {
-            $restaurant = new Restaurant();
-            $restaurant->user_id = $i;
-            $restaurant->address = 'Via Mattei 15';
-            $restaurant->name = 'Burger Queen';
-            $restaurant->save();
+        $all_restaurants = config('restaurants');
+        foreach ($all_restaurants as $restaurant) {
+            $new_restaurant = new Restaurant();
+            $new_restaurant->user_id = $restaurant['user_id'];
+            $new_restaurant->address = $restaurant['address'];
+            $new_restaurant->name = $restaurant['name'];
+            $new_restaurant->description = $restaurant['description'];
+            $new_restaurant->image = $restaurant['image'];
+            $new_restaurant->save();
         }
     }
 }
