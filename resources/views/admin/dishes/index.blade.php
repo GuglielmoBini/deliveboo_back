@@ -6,9 +6,10 @@
     <div class="card-section d-flex flex-wrap justify-content-center">
         @foreach ($dishes as $dish)
         <div class="card" style="width: 18rem;">
-			@if ($dish->image)
+			@isset($dish->image)
             <img src="{{$dish->image}}" class="card-img-top" alt="{{$dish->name}}">
-			@endif
+            @endisset
+
             <div class="card-body">
                 <h3>{{$dish->name}}</h3>
 				@if($dish->description)

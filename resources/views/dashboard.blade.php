@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="d-flex justify-content-start m-3 h100">
-                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center m-0 pb-2" href="">Menù</a>
+                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center m-0 pb-2" href="{{route('admin.dishes.index')}}">Menù</a>
                   <a class="btn btn-small btn-custom-secondary d-flex align-items-center ms-2 pb-2" href="">Modifica</a>
                 </div>
 
