@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +25,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function (){
+    // Code below groups all the CRUD's routes
+    Route::resource('restourants', RestaurantController::class);
+    Route::resource('dishes', DishController::class);
+    Route::resource('types', TypeController::class);
+    Route::resource('orders', OrderController::class);
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
