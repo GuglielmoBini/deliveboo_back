@@ -15,7 +15,7 @@
                 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto d-flex justify-content-end align-items-center mt-3">
-                    <a data-item="Restourant" class="p-0 me-3 fw-semibold size" href="">showRestourant()</a>
+                    <a data-item="Restourant" class="p-0 fw-semibold size me-3 hover-underline-animation" href="">showRestourant()</a>
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
@@ -32,10 +32,10 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
-                            <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div class="dropdown-menu dropdown-menu-right traslate" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-dark" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
+                            <a class="dropdown-item text-dark" href="{{ url('profile') }}">{{__('Profile')}}</a>
+                            <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
