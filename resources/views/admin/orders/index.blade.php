@@ -7,19 +7,19 @@
         <h1 class="my-5">Ordini</h1>
     </header>
     {{-- tabella --}}
-    <table class="table table-dark table-striped">
+    <table class="table table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">delivery_address</th>
-                <th scope="col">customer_name</th>
-                <th scope="col">customer_surname</th>
-                <th scope="col">customer_phone_number</th>
-                <th scope="col">customer_email</th>
-                <th scope="col">total_price</th>
-                <th scope="col">is_paid</th>
-                <th scope="col">created_at</th>
-                <th scope="col">updated_at</th>
+                <th scope="col">Indirizzo di Consegna</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">N. Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Prezzo Tot</th>
+                <th scope="col">Pagato</th>
+                <th scope="col">Creato</th>
+                <th scope="col">Aggiornato</th>
             </tr>
         </thead>
         <tbody>
@@ -52,7 +52,7 @@
         @endif
     </div>
     <div class="d-flex justify-content-center">
-        <a href="{{ route('dashboard') }}" class="btn btn-danger">Torna Indietro</a>
+        <a href="{{ route('dashboard') }}" class="btn btn-custom-secondary">Torna Indietro</a>
     </div>
 </div>
 @endsection
