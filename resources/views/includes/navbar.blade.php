@@ -4,18 +4,19 @@
         <div class="container d-flex justify-content-between">
             <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                @auth
                 <div class="navMenu d-flex align-items-center">
                     <a class="mx-3 logo d-flex align-items-center" href="{{ route('dashboard') }}">
                         <img src="img/logo-400x400.png" alt="" class="d-flex align-items-center">
                         <h2 class="m-0 ms-2 p-0 fw-bold">DeliveBoo</h2>
                     </a>
                 </div>
-                @endauth
                 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto d-flex justify-content-end align-items-center mt-3">
-                    <a data-item="Restourant" class="p-0 fw-semibold size me-3 hover-underline-animation" href="">showRestourant()</a>
+                    @auth
+                    <a class="p-0 fw-semibold size me-3 hover-underline-animation" href="">showRestaurant()</a>
+                    <a class="p-0 fw-semibold size me-3 hover-underline-animation" href="">showOrders()</a>
+                    @endauth
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
