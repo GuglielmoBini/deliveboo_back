@@ -18,7 +18,8 @@
 					<span>{{$dish->price}}</span>
 					<div class="form-check form-switch">
 						<label class="form-check-label" for="flexSwitchCheckDefault">Mostra nel menù</label>
-						<input class="form-check-input" type="checkbox" role="switch" id="isVisible">
+                        {{-- todo fare il form per il toggle--}}
+                        <input class="form-check-input" type="checkbox" role="switch" id="isVisible">
 					</div>
 				</div>
             </div>
