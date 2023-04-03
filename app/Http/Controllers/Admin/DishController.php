@@ -33,7 +33,34 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'nullable|text',
+            'price' => 'required|number',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png',
+        ], [
+            'name.required' => 'Il nome del piatto è obbligatorio.',
+            'price.required' => "Il prezzo del piatto è obbligatorio.",
+            'image.image' => 'L\'immagine deve essere un file di tipo immagine',
+            'image.mimes' => 'L\'immagine deve essere un file png, jpg o jpeg',
+        ]);
+
+        $data = $request->all();
+        $dish = new Dish();
+
+        if (array_key_exists('image', $data)) {
+            $img_url = Storage::put('dishes', $data['image']);
+            $data['image'] = $img_url;
+        };
+
+        $dish->name = $data['name'];
+        if ($dish->description) $dish->description = $data['description'];
+        if ($dish->image) $dish->image = $data['image'];
+        $dish->price = $data['price'];
+
+        $dish->save();
+
+        return to_route('admin.dishes.index')->with('created-allert', "Il piatto $dish->name è stato aggiunto");
     }
 
     /**
