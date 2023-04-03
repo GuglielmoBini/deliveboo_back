@@ -1,5 +1,5 @@
 .header-bgc {
-    background-color: var(--primary);
+    background-color: var(--p-orange);
 
     .container {
         padding: 5px 0px;
@@ -20,7 +20,35 @@
         .size {
             font-size: 17px;
         }
+
+        .traslate{
+            transform: translateX(-50px);
+        }
     }
 }
+
+.hover-underline-animation {
+    display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 
 

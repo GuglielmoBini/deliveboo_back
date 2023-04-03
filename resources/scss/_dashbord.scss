@@ -1,14 +1,24 @@
 .custom-text-title {
-    color: var(--secondary);
+    color: var(--d-blue);
 }
 
     .btn-custom-secondary {
-        background-color: var(--primary);
+        background-color: var(--p-orange);
         color: var(--white);
     }
 
     .btn-custom-secondary:hover    {
-        background-color: var(--quinary);
+        background-color: var(--d-orange);
         color: var(--white);
+    }
+
+    .text-custom-secondary {
+        color: var(--l-blue)
+    }
+
+    .img-custom {
+        width: 500px;
+        height: 300px;
+        object-fit: cover;
     }
 

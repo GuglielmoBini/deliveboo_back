@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -14,7 +16,20 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        $allDishes = Dish::all();
+        $restaurants = Restaurant::All();
+        $dishes = [];
+
+        foreach ($restaurants as $restaurant) {
+            if ($restaurant->user_id == Auth::user()->id) {
+                $res = $restaurant->id;
+            }
+        }
+        foreach ($allDishes as $dish) {
+            if ($dish->restaurant_id == $res) {
+                $dishes[] = $dish;
+            }
+        }
 
         return view('admin.dishes.index', compact('dishes'));
     }

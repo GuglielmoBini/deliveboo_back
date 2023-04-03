@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,21 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $restaurants = Restaurant::All();
+
+    // dd(Auth::user());
+
+    foreach ($restaurants as $restaurant) {
+        if ($restaurant->user_id == Auth::user()->id) {
+            $res = $restaurant;
+        }
+    }
+
+    return view('dashboard', compact('res'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function (){
+Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
     // Code below groups all the CRUD's routes
     Route::resource('restaurants', RestaurantController::class);
     Route::resource('dishes', DishController::class);
@@ -42,4 +54,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
