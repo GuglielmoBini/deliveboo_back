@@ -1,0 +1,13 @@
+.card-section {
+    padding-top: 20px;
+
+    .card {
+        margin: 10px 10px;
+    }
+
+    figure {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+}
