@@ -102,24 +102,25 @@ class RestaurantController extends Controller
             'address' => 'required|string|min:5|max:50',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png',
-            'types' => 'nullable|exists:types,id'
+            'types' => 'required'
         ], [
             'name.required' => 'È necessario inserire un nome per l\'attività',
             'name.min' => 'Il nome dell\'attività deve contenere almeno 5 caratteri',
             'name.max' => 'Il nome dell\'attività può contenere un massimo di 50 caratteri',
             'image.image' => 'Il file da caricare deve essere di tipo immagine',
             'image.mimes' => 'I tipi di file sono: jpg, jpeg, png',
-            'types' => 'Non hai selezionato un tipo di ristorante valido'
+            'types' => 'È necessario che indichi un tipo di ristorante'
         ]);
 
         $data = $request->all();
-        // In case we want a slug:
-        //$data['slug'] = Str::slug($data['title'], '-');
         
         $restaurant = new Restaurant();
         
         $restaurant->fill($data);
         
+        //assigning the author
+        $restaurant->user_id = Auth::id();
+
         if ($request->hasFile('image')){
             if($restaurant->image) Storage::delete($restaurant->image);
             $restaurant->image = Storage::put('upload', $data['image']);
@@ -131,7 +132,7 @@ class RestaurantController extends Controller
         if(Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
         else if(count($restaurant->types)) $restaurant->types()->detach();
 
-        return to_route('admin.dashboard');
+        return to_route('dashboard');
     }
 
     /**
