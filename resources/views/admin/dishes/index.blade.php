@@ -3,7 +3,9 @@
 @section('title', 'Menù')
 
 @section('content')
-    <div class="card-section d-flex flex-wrap justify-content-center">
+<div class="container">
+
+    <div class="card-section d-flex flex-wrap justify-content-between">
         @foreach ($dishes as $dish)
         <div class="card" style="width: 18rem;">
 			@isset($dish->image)
@@ -35,8 +37,9 @@
         @endforeach
     </div>
 
-    <div class="d-flex justify-content-end pe-5 me-5 mt-3">
+    <div class="d-flex justify-content-end mt-3 mb-5">
         <a href="#" class="btn btn-custom-secondary">Aggiungi Piatto</a>
     </div>
+</div>
 
 @endsection
