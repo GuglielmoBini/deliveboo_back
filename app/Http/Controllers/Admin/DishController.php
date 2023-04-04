@@ -7,6 +7,7 @@ use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Restaurant;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
@@ -77,7 +78,7 @@ class DishController extends Controller
         $dish->name = $data['name'];
         $dish->restaurant_id = $res;
         if ($data['description']) $dish->description = $data['description'];
-        if ($data['image']) $dish->image = $data['image'];
+        if (Arr::exists($data, 'image')) $dish->image = $data['image'];
         $dish->price = $data['price'];
 
         $dish->save();
@@ -131,7 +132,7 @@ class DishController extends Controller
         };
 
         $dish->name = $data['name'];
-        if ($dish->description) $dish->description = $data['description'];
+        if ($data['description']) $dish->description = $data['description'];
         $dish->price = $data['price'];
 
         $dish->save();
