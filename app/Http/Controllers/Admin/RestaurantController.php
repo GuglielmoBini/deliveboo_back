@@ -36,7 +36,7 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-
+        $types = Type::All();
         $request->validate([
             'name' => 'required|string|min:5|max:50',
             'address' => 'required|string|min:5|max:50',
@@ -70,7 +70,7 @@ class RestaurantController extends Controller
         // make a relation between restaurant and type
         if(Arr::exists($data, 'types')) $restaurant->types()->attach($data['types']);
 
-        return to_route('dashboard');
+        return to_route('dashboard', compact('types'));
     }
 
     /**

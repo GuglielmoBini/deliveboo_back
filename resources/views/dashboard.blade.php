@@ -18,6 +18,20 @@
                   <h1 class="card-title custom-text-title">{{$res->name}}</h1>
                   <p class="card-text">{{$res->description}}</p>
                   <p class="card-text"><small class="text-custom-secondary my-4">di {{ Auth::user()->name }} {{ Auth::user()->surname }}</small></p>
+
+                  <!-- type of restaurant -->
+                  <h5 class="text-custom-primary">Tipo attività</h5>
+                  <div class="d-flex">
+                    @forelse($res->types as $type)
+                    <div class="card type-card me-1">
+                      <img class="img-fluid" src="{{ $type->image }}" alt="{{ $type->name }}">
+                      <h5 class="text-center mt-1">{{ $type->name }}</h5>
+                    </div>
+                    @empty
+                    -
+                    @endforelse
+                  </div>
+
                 </div>
 
                 <div class="d-flex justify-content-start m-3">
