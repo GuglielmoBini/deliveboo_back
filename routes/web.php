@@ -45,6 +45,9 @@ Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
     Route::resource('dishes', DishController::class);
     Route::resource('types', TypeController::class);
     Route::resource('orders', OrderController::class);
+
+    // toggle route
+    Route::patch('/dishes/{dish}/toggle', [DishController::class, 'toggle'])->name('dishes.toggle');
 });
 
 

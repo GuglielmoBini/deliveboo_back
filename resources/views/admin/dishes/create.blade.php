@@ -38,6 +38,12 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png" class="img-fluid rounded" alt="placeholder" id="preview">
                         </div>
                     </div> --}}
+                    <div class="col-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="is_visible" name="is_visible" @if(old('is_visible')) checked @endif>
+                            <label class="form-check-label" for="is_visible">Pubblicato</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-end my-3">
                     <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2">Torna indietro</a>
