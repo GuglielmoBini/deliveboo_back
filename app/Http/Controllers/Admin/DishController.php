@@ -47,10 +47,17 @@ class DishController extends Controller
      */
     public function store(Request $request, Dish $dish)
     {
+        $restaurants = Restaurant::All();
+        foreach ($restaurants as $restaurant) {
+            if ($restaurant->user_id == Auth::user()->id) {
+                $res = $restaurant->id;
+            }
+        }
+
         $request->validate([
             'name' => 'required|string',
-            'description' => 'nullable|text',
-            'price' => 'required|number',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
             'name.required' => 'Il nome del piatto è obbligatorio.',
@@ -68,6 +75,7 @@ class DishController extends Controller
         };
 
         $dish->name = $data['name'];
+        $dish->restaurant_id = $res;
         if ($dish->description) $dish->description = $data['description'];
         if ($dish->image) $dish->image = $data['image'];
         $dish->price = $data['price'];
@@ -100,8 +108,8 @@ class DishController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'nullable|text',
-            'price' => 'required|number',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
             'name.required' => 'Il nome del piatto è obbligatorio.',

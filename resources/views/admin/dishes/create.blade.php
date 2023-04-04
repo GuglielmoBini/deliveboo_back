@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-6 ">
                         <label class="mb-2 form-label" for="price">Prezzo</label>
-                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price')}}"id="price">
+                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price')}}"id="price"  name="price">
                     </div>
                     <div class="col-12 my-4">
                             <label class="mb-2 form-label" for="description">Descrizione</label>
