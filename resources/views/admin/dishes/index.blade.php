@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 
-    <div class="card-section d-flex flex-wrap justify-content-between">
+    <div class="card-section d-flex flex-wrap justify-content-start gap-3 ps-3">
         @foreach ($dishes as $dish)
         <div class="card" style="width: 18rem;">
 			@isset($dish->image)
