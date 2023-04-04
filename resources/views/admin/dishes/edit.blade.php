@@ -39,6 +39,12 @@
                             <img src="{{asset('storage/' . $dish->image)}}" class="img-fluid rounded" alt="{{$dish->name}}"id="preview">
                         </div>
                     </div> --}}
+                    <div class="col-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="is_visible" name="is_visible" @if(old('is_visible', $dish->is_visible)) checked @endif>
+                            <label class="form-check-label" for="is_visible">Pubblicato</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-end">
                     <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2">Torna indietro</a>

@@ -81,6 +81,8 @@ class DishController extends Controller
         if (Arr::exists($data, 'image')) $dish->image = $data['image'];
         $dish->price = $data['price'];
 
+        $dish->is_visible = Arr::exists($data, 'is_visible');
+
         $dish->save();
 
         return to_route('admin.dishes.index')->with('created-allert', "Il piatto $dish->name è stato aggiunto");
@@ -135,7 +137,11 @@ class DishController extends Controller
         if ($data['description']) $dish->description = $data['description'];
         $dish->price = $data['price'];
 
+        $dish->is_visible = Arr::exists($data, 'is_visible');
+        // $data['is_visible'] = Arr::exists($data, 'is_visible');
+
         $dish->save();
+        // $dish->update($data);
 
         return to_route('admin.dishes.index')->with('updated-allert', "Il piatto $old_d_name è stato modificato");
     }
@@ -151,5 +157,15 @@ class DishController extends Controller
         return to_route('admin.dishes.index')
             // ->with('deleted-allert', "Il piatto $dish->name è stato eliminato")
         ;
+    }
+
+    public function toggle(Dish $dish)
+    {
+        $dish->is_visible = !$dish->is_visible;
+        $old_d_name = $dish->name;
+        $action = $dish->is_visible ? 'pubblicato con successo' : 'depubblicato';
+        $dish->save();
+
+        return to_route('admin.dishes.index')->with('updated-allert', "Il piatto $old_d_name è stato $action");
     }
 }

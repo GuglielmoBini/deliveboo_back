@@ -25,19 +25,28 @@
 				<div class="d-flex justify-content-between">
 					<span class="text-custom-secondary">€{{$dish->price}}</span>
 					<div class="form-check form-switch">
-						<label class="form-check-label" for="flexSwitchCheckDefault">Mostra nel menù</label>
-                        {{-- todo fare il form per il toggle--}}
-                        <input class="form-check-input" type="checkbox" role="switch" id="isVisible">
+                        {{-- toggle --}}
+                        <form action="{{ route('admin.dishes.toggle', $dish->id) }}" method="POST">
+                            @method('PATCH')
+                            @csrf
+                            <span>Pubblica</span>
+                            <button type="submit" class="btn btn-outline p-0" id="toggle">
+                                <i class="fa-solid fa-2x fa-toggle-{{ $dish->is_visible ? 'on' : 'off' }} {{ $dish->is_visible ? 'text-success' : 'text-danger' }}"></i>
+                            </button>
+                        </form>
 					</div>
 				</div>
 
-                <div class="mt-2 d-flex justify-content-end">
-                    <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-sm btn-custom-secondary">Modifica</a>
-                    <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="ms-2 btn btn-sm btn-custom-secondary">Elimina</button>
-                    </form>
+                <div class="mt-2 d-flex justify-content-between align-items-center">
+                    <div>{{ $dish->is_visible ? 'Visibile' : 'Bozza' }}</div>
+                    <div class="d-flex">
+                        <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-sm btn-custom-secondary">Modifica</a>
+                        <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ms-2 btn btn-sm btn-custom-secondary">Elimina</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
