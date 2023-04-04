@@ -30,7 +30,11 @@
 
                 <div class="mt-2 d-flex justify-content-end">
                     <a href="#" class="btn btn-sm btn-custom-secondary">Modifica</a>
-                    <button href="" class="ms-2 btn btn-sm btn-custom-secondary">Elimina</button>
+                    <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="ms-2 btn btn-sm btn-custom-secondary">Elimina</button>
+                    </form>
                 </div>
             </div>
         </div>
