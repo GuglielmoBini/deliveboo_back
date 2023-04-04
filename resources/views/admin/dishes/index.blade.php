@@ -29,7 +29,7 @@
 				</div>
 
                 <div class="mt-2 d-flex justify-content-end">
-                    <a href="#" class="btn btn-sm btn-custom-secondary">Modifica</a>
+                    <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-sm btn-custom-secondary">Modifica</a>
                     <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -42,7 +42,7 @@
     </div>
 
     <div class="d-flex justify-content-end mt-3 mb-5">
-        <a href="#" class="btn btn-custom-secondary">Aggiungi Piatto</a>
+        <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary">Aggiungi Piatto</a>
     </div>
 </div>
 
