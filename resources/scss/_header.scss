@@ -1,18 +1,19 @@
 .header-bgc {
     background-color: var(--p-orange);
+    height: 120px;
 
     .container {
         padding: 5px 0px;
-        
+
         img {
             width: 80px;
         }
-        
+
         a {
             text-decoration: none;
             color: var(--white);
         }
-        
+
         h2 {
             font-size: 60px;
         }
@@ -21,7 +22,7 @@
             font-size: 17px;
         }
 
-        .traslate{
+        .traslate {
             transform: translateX(-50px);
         }
     }
@@ -29,8 +30,8 @@
 
 .hover-underline-animation {
     display: inline-block;
-  position: relative;
-  color: #0087ca;
+    position: relative;
+    color: #0087ca;
 }
 
 .hover-underline-animation:after {
@@ -49,6 +50,4 @@
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
-
-
+}
