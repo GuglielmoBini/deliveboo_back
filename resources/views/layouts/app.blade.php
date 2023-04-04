@@ -8,6 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/svg+xml" href="img/logo-400x400.png" />
+
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     {{-- font 1 --}}
