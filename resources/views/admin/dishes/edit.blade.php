@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{route('admin.dishes.store')}}" enctype="multipart/form-data" method="POST">
+        <form action="{{route('admin.dishes.update', $dish->id)}}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
                 @if ($errors->any())
@@ -23,11 +23,11 @@
                     </div>
                     <div class="col-6 ">
                         <label class="mb-2 form-label" for="price">Prezzo</label>
-                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price', $dish->price)}}"id="price">
+                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price', $dish->price)}}" id="price" name="price">
                     </div>
                     <div class="col-12 my-4">
                             <label class="mb-2 form-label" for="description">Descrizione</label>
-                            <textarea class="form-control" rows="12" name="description" value="{{old('description', $dish->description)}}" id="description"></textarea>
+                            <textarea class="form-control" rows="12" name="description" id="description">{{old('description', $dish->description)}}</textarea>
                     </div>
                     {{-- <div class="w-50">
                         <div>
@@ -41,7 +41,7 @@
                     </div> --}}
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary">Torna indietro</a>
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2">Torna indietro</a>
                     <button type="submit" class="btn btn-custom-secondary">Salva</button>
                 </div>
         </form>

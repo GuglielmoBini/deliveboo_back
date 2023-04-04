@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-12 my-4">
                             <label class="mb-2 form-label" for="description">Descrizione</label>
-                            <textarea class="form-control" rows="12" name="description" value="{{old('description')}}" id="description"></textarea>
+                            <textarea class="form-control" rows="12" name="description" id="description">{{old('description')}}</textarea>
                     </div>
                     {{-- <div class="w-50">
                         <div>
