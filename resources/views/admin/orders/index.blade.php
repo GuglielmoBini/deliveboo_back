@@ -32,7 +32,7 @@
                 <td>{{ $order->customer_phone_number }}</td>
                 <td>{{ $order->customer_email }}</td>
                 <td>{{ $order->total_price }}</td>
-                <td>{{ $order->is_paid }}</td>
+                <td>@if($order->is_paid) <i class="fa-solid fa-check" style="color: #4888a8;"></i> @else <i class="fa-solid fa-x" style="color: #4888a8;"></i> @endif</td>
                 <td>{{ $order->getDateDiff('created_at') }}</td>
                 <td>{{ $order->getDate('updated_at', 'd-m-Y H:i:s') }}</td>
             </tr>
