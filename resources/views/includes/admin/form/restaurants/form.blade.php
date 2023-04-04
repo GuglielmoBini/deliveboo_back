@@ -62,7 +62,7 @@
     
     </div>
 
-    <button type="submit" class="btn btn-custom-secondary"><i class="fa-solid fa-upload me-2"></i>{{ $restaurant->exists ? 'Aggiorna' : 'Carica'}}</button>
+    <button type="submit" class="btn btn-custom-secondary mb-4"><i class="fa-solid fa-upload me-2"></i>{{ $restaurant->exists ? 'Aggiorna' : 'Carica'}}</button>
 
 </form>
 
