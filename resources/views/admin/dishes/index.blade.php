@@ -4,8 +4,11 @@
 
 @section('content')
 <div class="container">
-
-    <div class="card-section d-flex flex-wrap justify-content-start gap-3 ps-3">
+    <div class="d-flex justify-content-end mt-4 mb-3">
+        <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary">Aggiungi Piatto</a>
+    </div>
+    
+    <div class="card-section d-flex flex-wrap justify-content-start gap-3 pt-0 ps-3">
         @foreach ($dishes as $dish)
         <div class="card" style="width: 18rem;">
 			@isset($dish->image)
@@ -39,10 +42,6 @@
             </div>
         </div>
         @endforeach
-    </div>
-
-    <div class="d-flex justify-content-end mt-3 mb-5">
-        <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary">Aggiungi Piatto</a>
     </div>
 </div>
 
