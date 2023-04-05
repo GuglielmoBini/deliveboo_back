@@ -67,7 +67,7 @@ return [
         'user_id'=>10,
         'address'=>'via Maranza 13',
         'name'=>'Karma sushi',
-        'description'=>"susheria classica gestita completamente da ragazzi asiatici che portani piatti del loro territorio",
+        'description'=>"Ristorante etnico nipponico gestita completamente da ragazzi asiatici che portano i piatti del loro territorio",
         'image'=>'upload/ristorante-sushi-3.jpg',
 
     ]

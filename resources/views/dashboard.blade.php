@@ -8,14 +8,14 @@
     <h6 class="text-custom-secondary">ecco il tuo ristorante:</h6>
     <div class="card mb-3" style="max-width: 100%;">
         <div class="row g-0">
-          <div class="col-md-4">
+          <div class="col-md-5">
             @isset($res->image)
-            <img src="{{ asset('storage/' . $res->image) }}" class="img-fluid rounded-start img-custom" alt="$res->name">
+            <img src="{{ asset('storage/' . $res->image) }}" class="img-fluid rounded-start" alt="$res->name">
             @else
-            <img src="{{ asset('storage/upload/placeholder-image.jpg') }}" class="img-fluid rounded-start img-custom" alt="immagine non caricata">
+            <img src="{{ asset('storage/upload/placeholder-image.jpg') }}" class="img-fluid rounded-start" alt="immagine non caricata">
             @endisset
           </div>
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="d-flex flex-column justify-content-between h-100">
 
                 <div class="card-body">
