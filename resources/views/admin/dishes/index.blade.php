@@ -13,7 +13,7 @@
         <div class="card" style="width: 18rem;">
 			@isset($dish->image)
             <figure class="rounded-top">
-                <img src="{{$dish->image}}" class="card-img-top img-custom" alt="{{$dish->name}}">
+                <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top img-custom" alt="{{$dish->name}}">
             </figure>
             @endisset
 
