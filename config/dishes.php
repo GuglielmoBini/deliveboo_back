@@ -5,35 +5,35 @@
         'restaurant_id'=>1,
         'name'=>'margherita',
         'description'=>'mozzarella e pomodoro',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDVDFIBNbMgQllKbIpXdB7Yhusb0iL7v8LIQ&usqp=CAU',
+        'image'=>'upload/pizza-9',
         'price'=>5.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>1,
         'name'=>'marinara',
         'description'=>'pomodoro',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq0chTQyyPjNlEidLQ9IQ4Qm5y4kCzsBHTeQ&usqp=CAU',
+        'image'=>'upload/pizza-1.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>1,
         'name'=>'Speck e mascarpone',
         'description'=>'base margherita con speck e mascarpone',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqOqaY28ZhATA4hn6ZGC-bn-SUL1Vc57DxPA&usqp=CAU',
+        'image'=>'upload/pizza-11.jpg',
         'price'=>10.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>1,
         'name'=>'Capricciosa',
         'description'=>'base margherita con funchi carciofi acciughe e olive',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4MLGVL5pz2yV5akJB6Zf-CoOPu90YppfeQ&usqp=CAU',
+        'image'=>'upload/pizza-7.jpg',
         'price'=>10.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>1,
-        'name'=>'per perosone speciali',
+        'name'=>'Special',
         'description'=>'base margherita wurtsel e patatine',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZgXbx256EBIvAFstKdzvXr2r3f2gqnwCPeg&usqp=CAU',
+        'image'=>'upload/pizza-4.jpg',
         'price'=>20.00 ,
         'is_visible'=>1
         //!-----------------------
@@ -79,37 +79,37 @@
         //!-----------------------
     ],[
         'restaurant_id'=>3,
-        'name'=>'tomawhack',
+        'name'=>'Tomawhack',
         'price'=>40.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
-        'name'=>'filetto',
+        'name'=>'Filetto',
         'price'=>30.00 ,
         'is_visible'=>0
     ],[
         'restaurant_id'=>3,
-        'name'=>'sotto filetto',
+        'name'=>'Sotto Filetto',
         'price'=>40.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
-        'name'=>'carbonara',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDzoHF6EkddsbipA0XPVl2ANcvDEttjYbPdA&usqp=CAU',
+        'name'=>'Cannelloni',
+        'image'=>'upload/pasta-2.jpg',
         'price'=>15.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
-        'name'=>'amatriciana',
+        'name'=>'Lasagna',
         'price'=>15.00 ,
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo-MZWlIwRkK7ss-lNeYB11gBzL7FDfHVmUw&usqp=CAU',
+        'image'=>'upload/pasta-4.jpg',
         'is_visible'=>1
         
     ],[
         'restaurant_id'=>3,
-        'name'=>'trofie al pesto',
+        'name'=>'Farfalle al pesto',
         'price'=>35.00 ,
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmsWyFJr4_JWUfbbDp-dUNv99RQFRoPsSODQ&usqp=CAU',
+        'image'=>'upload/pasta-8.jpg',
         'is_visible'=>1
         //!-----------------------
     ],[
@@ -158,35 +158,35 @@
         'restaurant_id'=>5,
         'name'=>'margherita',
         'description'=>'mozzarella e pomodoro',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDVDFIBNbMgQllKbIpXdB7Yhusb0iL7v8LIQ&usqp=CAU',
+        'image'=>'upload/pizza-1.jpg',
         'price'=>5.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>5,
         'name'=>'marinara',
         'description'=>'pomodoro',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq0chTQyyPjNlEidLQ9IQ4Qm5y4kCzsBHTeQ&usqp=CAU',
+        'image'=>'upload/pizza-2.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>5,
         'name'=>'Speck e mascarpone',
         'description'=>'base margherita con speck e mascarpone',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqOqaY28ZhATA4hn6ZGC-bn-SUL1Vc57DxPA&usqp=CAU',
+        'image'=>'upload/pizza-3.jpg',
         'price'=>10.00 ,
         'is_visible'=>0
     ],[
         'restaurant_id'=>5,
         'name'=>'Capricciosa',
         'description'=>'base margherita con funchi carciofi acciughe e olive',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4MLGVL5pz2yV5akJB6Zf-CoOPu90YppfeQ&usqp=CAU',
+        'image'=>'upload/pizza-4.jpg',
         'price'=>10.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>5,
-        'name'=>'per perosone speciali',
+        'name'=>'Fantastic',
         'description'=>'base margherita wurtsel e patatine',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZgXbx256EBIvAFstKdzvXr2r3f2gqnwCPeg&usqp=CAU',
+        'image'=>'upload/pizza-5.jpg',
         'price'=>20.00 ,
         'is_visible'=>1
         //!-----------------------
@@ -214,62 +214,62 @@
     ],[
         'restaurant_id'=>7,
         'name'=>'nighiri salmone',
-        'image'=> 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV8jNZ6i10kOLu4aRNxShsG0HO36H-WQDgFQ&usqp=CAU',
+        'image'=> 'upload/sushi-1.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>7,
         'name'=>'nighiri tonno',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN29D2zqmntxcILXSgeosiSkEt4MhCB0ljGQ&usqp=CAU',
+        'image'=>'upload/sushi-2.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>7,
         'name'=>'nighiri gambero',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgbsWT1d9w7AHXjrQ_HUw_UNHfYw4_I2AxXw&usqp=CAU',
+        'image'=>'upload/sushi-3.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>7,
         'name'=>'tempura di gamber',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZAnzuGYW6t-Nko4d7zpJxZlcLqKM9BvKBA&usqp=CAU',
+        'image'=>'upload/sushi-4.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>7,
         'name'=>'ravioli al vapore',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk8W7dt1agyc7yK507u5_Uo3yQ22mseBo5kA&usqp=CAU',
+        'image'=>'upload/sushi-5.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
         //!-----------------------
     ],[
         'restaurant_id'=>8,
         'name'=>'nighiri salmone',
-        'image'=> 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV8jNZ6i10kOLu4aRNxShsG0HO36H-WQDgFQ&usqp=CAU',
+        'image'=> 'upload/sushi-6.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>8,
         'name'=>'nighiri tonno',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN29D2zqmntxcILXSgeosiSkEt4MhCB0ljGQ&usqp=CAU',
+        'image'=>'upload/sushi-7.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>8,
         'name'=>'nighiri gambero',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgbsWT1d9w7AHXjrQ_HUw_UNHfYw4_I2AxXw&usqp=CAU',
+        'image'=>'upload/sushi-8.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>8,
         'name'=>'tempura di gamber',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZAnzuGYW6t-Nko4d7zpJxZlcLqKM9BvKBA&usqp=CAU',
+        'image'=>'upload/sushi-9.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>8,
         'name'=>'ravioli al vapore',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk8W7dt1agyc7yK507u5_Uo3yQ22mseBo5kA&usqp=CAU',
+        'image'=>'upload/sushi-10.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
         //!-----------------------
@@ -277,24 +277,28 @@
         'restaurant_id'=>9,
         'name'=>'hamburger classico',
         'description'=>'pane hamburger, cipolle, insalata,pomodori e pancetta croccante',
+        'image'=>'upload/hamburger-1.jpg',
         'price'=>7.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>9,
         'name'=>'cheesburger',
         'description'=>'pane , hamburger, cipolle, insalata,pomodori, pancetta croccante e formaggio',
+        'image'=>'upload/hamburger-2.jpg',
         'price'=>7.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>9,
         'name'=>' duble cheesburger',
         'description'=>'pane , 2 hamburger, cipolle, insalata,pomodori, pancetta croccante e formaggio',
+        'image'=>'upload/hamburger-3.jpg',
         'price'=>10.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>9,
         'name'=>' triplo cheesburger',
         'description'=>'pane , 3 hamburger, cipolle, insalata,pomodori, pancetta croccante e formaggio',
+        'image'=>'upload/hamburger-4.jpg',
         'price'=>13.00 ,
         'is_visible'=>1
     ],[
@@ -316,31 +320,31 @@
     ],[
         'restaurant_id'=>10,
         'name'=>'nighiri salmone',
-        'image'=> 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV8jNZ6i10kOLu4aRNxShsG0HO36H-WQDgFQ&usqp=CAU',
+        'image'=> 'upload/sushi-11.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>10,
         'name'=>'nighiri tonno',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN29D2zqmntxcILXSgeosiSkEt4MhCB0ljGQ&usqp=CAU',
+        'image'=>'upload/sushi-12.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>10,
         'name'=>'nighiri gambero',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgbsWT1d9w7AHXjrQ_HUw_UNHfYw4_I2AxXw&usqp=CAU',
+        'image'=>'upload/sushi-13.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>10,
         'name'=>'tempura di gamber',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZAnzuGYW6t-Nko4d7zpJxZlcLqKM9BvKBA&usqp=CAU',
+        'image'=>'upload/sushi-14.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ],[
         'restaurant_id'=>10,
         'name'=>'ravioli al vapore',
-        'image'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk8W7dt1agyc7yK507u5_Uo3yQ22mseBo5kA&usqp=CAU',
+        'image'=>'upload/sushi-15.jpg',
         'price'=>4.00 ,
         'is_visible'=>1
     ]
