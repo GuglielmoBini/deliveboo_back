@@ -15,9 +15,9 @@ class DishController extends Controller
     {
         $dishes = Dish::where('is_visible', true)->with('restaurant', 'orders')->get();
 
-        foreach ($dishes as $dish) {
-            if ($dish->image) $dish->image = url('storage/' . $dish->image);
-        }
+        // foreach ($dishes as $dish) {
+        //     if ($dish->image) $dish->image = url('storage/' . $dish->image);
+        // }
 
         return response()->json($dishes);
     }

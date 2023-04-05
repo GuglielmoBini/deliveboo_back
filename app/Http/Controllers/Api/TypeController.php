@@ -15,6 +15,10 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
+        // foreach ($types as $type) {
+        //     if ($type->image) $type->image = url('storage/' . $type->image);
+        // }
+
         return response()->json($types);
     }
 
