@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Aggiungi piatto')
-
 @section('content')
     <div class="container">
         <form action="{{route('admin.dishes.store')}}" enctype="multipart/form-data" method="POST">

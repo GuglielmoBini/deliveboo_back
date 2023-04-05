@@ -1,13 +1,10 @@
 @extends('layouts.app')
-
 @section('title', 'Menù')
-
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-end mt-4 mb-3">
         <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary">Aggiungi Piatto</a>
-    </div>
-    
+    </div>    
     <div class="card-section d-flex flex-wrap justify-content-start gap-3 pt-0 ps-3">
         @foreach ($dishes as $dish)
         <div class="card" style="width: 18rem;">
@@ -36,7 +33,6 @@
                         </form>
 					</div>
 				</div>
-
                 <div class="mt-2 d-flex justify-content-between align-items-center">
                     <div>{{ $dish->is_visible ? 'Visibile' : 'Bozza' }}</div>
                     <div class="d-flex">
@@ -53,5 +49,4 @@
         @endforeach
     </div>
 </div>
-
 @endsection

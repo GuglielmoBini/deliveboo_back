@@ -52,23 +52,23 @@ class RestaurantController extends Controller
             'image.mimes' => 'I tipi di file sono: jpg, jpeg, png',
             'types.required' => 'È necessario che indichi un tipo di ristorante'
         ]);
-        
+
         $data = $request->all();
-        
+
         $restaurant = new Restaurant();
-        
+
         $restaurant->fill($data);
-        
+
         //assigning the author
         $restaurant->user_id = Auth::id();
 
         // Storing image and creating its path
         if ($request->hasFile('image')) $restaurant->image = Storage::put('upload', $data['image']);
-        
+
         $restaurant->save();
 
         // make a relation between restaurant and type
-        if(Arr::exists($data, 'types')) $restaurant->types()->attach($data['types']);
+        if (Arr::exists($data, 'types')) $restaurant->types()->attach($data['types']);
 
         return to_route('dashboard', compact('types'));
     }
@@ -94,7 +94,7 @@ class RestaurantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
         $request->validate([
             'users_id' => 'nullable|exists:users,id',
@@ -113,24 +113,22 @@ class RestaurantController extends Controller
         ]);
 
         $data = $request->all();
-        
-        $restaurant = new Restaurant();
-        
+
         $restaurant->fill($data);
-        
+
         //assigning the author
         $restaurant->user_id = Auth::id();
 
-        if ($request->hasFile('image')){
-            if($restaurant->image) Storage::delete($restaurant->image);
+        if ($request->hasFile('image')) {
+            if ($restaurant->image) Storage::delete($restaurant->image);
             $restaurant->image = Storage::put('upload', $data['image']);
-        } 
-        
+        }
+
         $restaurant->save();
 
         // Assign the type
-        if(Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
-        else if(count($restaurant->types)) $restaurant->types()->detach();
+        if (Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
+        else if (count($restaurant->types)) $restaurant->types()->detach();
 
         return to_route('dashboard');
     }
