@@ -33,18 +33,18 @@
 </head>
 
 <body>
-    <header class="header-bgc">
-        @include('includes.navbar')
-    </header>
-
     <div id="app">
+        <header class="header-bgc">
+            @include('includes.navbar')
+        </header>
         <main>
+            @include('includes.alerts.session')
+            @auth    
+                @include('includes.alerts.errors')
+            @endauth
             @yield('content')
         </main>
-
-        @yield('scripts')
     </div>
-
     @yield('scripts')
 </body>
 

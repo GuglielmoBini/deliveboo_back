@@ -70,7 +70,7 @@ class RestaurantController extends Controller
         // make a relation between restaurant and type
         if (Arr::exists($data, 'types')) $restaurant->types()->attach($data['types']);
 
-        return to_route('dashboard', compact('types'));
+        return to_route('dashboard', compact('types'))->with('type', 'success')->with('msg', "Il ristorante è stato creato correttamente");
     }
 
     /**
@@ -130,7 +130,7 @@ class RestaurantController extends Controller
         if (Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
         else if (count($restaurant->types)) $restaurant->types()->detach();
 
-        return to_route('dashboard');
+        return to_route('dashboard')->with('type', 'warning')->with('msg', "Il ristorante $restaurant->name è stato modificato");
     }
 
     /**

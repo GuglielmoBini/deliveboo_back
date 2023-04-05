@@ -85,7 +85,7 @@ class DishController extends Controller
 
         $dish->save();
 
-        return to_route('admin.dishes.index')->with('created-allert', "Il piatto $dish->name è stato aggiunto");
+        return to_route('admin.dishes.index')->with('type', 'success')->with('msg', "Il piatto è stato creato correttamente.");
     }
 
     /**
@@ -121,8 +121,6 @@ class DishController extends Controller
             'image.mimes' => 'L\'immagine deve essere un file png, jpg o jpeg',
         ]);
 
-        $old_d_name = $dish->name;
-
         $data = $request->all();
 
         if (array_key_exists('image', $data)) {
@@ -143,7 +141,7 @@ class DishController extends Controller
         $dish->save();
         // $dish->update($data);
 
-        return to_route('admin.dishes.index')->with('updated-allert', "Il piatto $old_d_name è stato modificato");
+        return to_route('admin.dishes.index')->with('type', 'warning')->with('msg', "Il piatto $dish->name è stato modificato");
     }
 
     /**
@@ -154,18 +152,15 @@ class DishController extends Controller
         if ($dish->image) Storage::delete($dish->image);
 
         $dish->delete();
-        return to_route('admin.dishes.index')
-            // ->with('deleted-allert', "Il piatto $dish->name è stato eliminato")
-        ;
+        return to_route('admin.dishes.index')->with('type', 'danger')->with('msg', "Il piatto $dish->name è stato eliminato");
     }
 
     public function toggle(Dish $dish)
     {
         $dish->is_visible = !$dish->is_visible;
-        $old_d_name = $dish->name;
         $action = $dish->is_visible ? 'pubblicato con successo' : 'depubblicato';
         $dish->save();
 
-        return to_route('admin.dishes.index')->with('updated-allert', "Il piatto $old_d_name è stato $action");
+        return to_route('admin.dishes.index')->with('type', 'info')->with('msg', "Il piatto $dish->name è stato $action");
     }
 }

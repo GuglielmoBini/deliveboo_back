@@ -4,15 +4,6 @@
     <div class="container">
         <form action="{{route('admin.dishes.store')}}" enctype="multipart/form-data" method="POST">
             @csrf
-                @if ($errors->any())
-                <div class="alert alert-danger mt-5 mb-0">
-                    <ul class="m-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 <div class="row mt-5 mb-3">
                     <div class="col-6 ">
                         <label class="mb-2 form-label" for="name">Nome piatto</label>
