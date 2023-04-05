@@ -20,4 +20,9 @@ class Dish extends Model
     {
         return $this->belongsToMany(Order::class);
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:d/m/y H:i',
+        'updated_at' => 'datetime:d/m/y H:i:s',
+    ];
 }

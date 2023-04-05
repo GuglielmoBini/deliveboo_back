@@ -13,4 +13,9 @@ class Type extends Model
     {
         return $this->belongsToMany(Restaurant::class);
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:d/m/y H:i',
+        'updated_at' => 'datetime:d/m/y H:i:s',
+    ];
 }
