@@ -15,9 +15,9 @@ class RestaurantController extends Controller
     {
         $restaurants = Restaurant::with('user', 'types')->get();
 
-        // foreach ($restaurants as $restaurant) {
-        //     if ($restaurant->image) $restaurant->image = url('storage/' . $restaurant->image);
-        // }
+        foreach ($restaurants as $restaurant) {
+            if ($restaurant->image) $restaurant->image = url('storage/' . $restaurant->image);
+        }
 
         return response()->json($restaurants);
     }
