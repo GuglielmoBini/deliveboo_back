@@ -21,7 +21,7 @@ class Order extends Model
 
     public function dishes()
     {
-        return $this->belongsToMany(Dishes::class);
+        return $this->belongsToMany(Dish::class);
     }
 
     public function getDate($date_column, $format = 'd-m-Y')
