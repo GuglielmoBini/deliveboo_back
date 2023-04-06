@@ -23,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse($orders as $order)
+            @forelse($user_orders as $order)
             <tr>
                 <th scope="row">{{ $order->id }}</th>
                 <td>{{ $order->delivery_address }}</td>
@@ -45,12 +45,7 @@
         </tbody>
     </table>
 
-    {{-- Paginazione --}}
-    <div class="d-flex justify-content-end">
-        @if ($orders->hasPages())
-        {{ $orders->links() }}
-        @endif
-    </div>
+    
     <div class="d-flex justify-content-center">
         <a href="{{ route('dashboard') }}" class="btn btn-custom-secondary">Torna Indietro</a>
     </div>
