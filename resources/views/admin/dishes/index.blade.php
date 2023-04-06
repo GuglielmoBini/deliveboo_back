@@ -12,15 +12,19 @@
             <figure class="rounded-top">
                 <img src="{{ asset('storage/' . $dish->image) }}" class="card-img-top img-custom" alt="{{$dish->name}}">
             </figure>
+            @else
+            <figure class="rounded-top">
+                <img src="http://127.0.0.1:8000/storage/upload/placeholder-image.jpg" class="card-img-top img-custom" alt="{{$dish->name}}">
+            </figure>
             @endisset
 
             <div class="card-body d-flex flex-column justify-content-between">
-                <h3 class="text-uppercase custom-text-title">{{$dish->name}}</h3>
+                <h3 class="title-card text-uppercase custom-text-title">{{$dish->name}}</h3>
 				@if($dish->description)
-                <p class="card-text">{{$dish->description}}</p>
+                <p class="paragraph-card card-text">{{$dish->description}}</p>
 				@endif
-				<div class="d-flex justify-content-between">
-					<span class="text-custom-secondary">€{{$dish->price}}</span>
+				<div class="d-flex justify-content-between align-items-center">
+					<span class="text-custom-secondary price-position">€{{$dish->price}}</span>
 					<div class="form-check form-switch">
                         {{-- toggle --}}
                         <form action="{{ route('admin.dishes.toggle', $dish->id) }}" method="POST">
@@ -36,11 +40,11 @@
                 <div class="mt-2 d-flex justify-content-between align-items-center">
                     <div>{{ $dish->is_visible ? 'Visibile' : 'Bozza' }}</div>
                     <div class="d-flex">
-                        <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-sm btn-custom-secondary">Modifica</a>
+                        <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-sm btn-custom-secondary" >Modifica</a>
                         <form action="{{ route('admin.dishes.destroy', $dish->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="ms-2 btn btn-sm btn-custom-secondary">Elimina</button>
+                            <button type="submit" class="delete ms-2 btn btn-sm btn-custom-secondary" onclick="return confirm('Sei sicuro di voler cancellare questo piatto?')">Elimina</button>
                         </form>
                     </div>
                 </div>
@@ -49,4 +53,9 @@
         @endforeach
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+</script>
 @endsection

@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             $new_user->surname = $user['surname'];
             $new_user->vat_number = $user['vat_number'];
             $new_user->email =  $user['email'];
-            $new_user->password =  $user['password'];
+            $new_user->password =  bcrypt($user['password']);
             $new_user->save();
         }
     }

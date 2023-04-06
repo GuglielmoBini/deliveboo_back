@@ -5,7 +5,7 @@
 
 @else
 <!-- form upload -->
-<form action="{{route('admin.restaurants.store')}}" method="POST" enctype="multipart/form-data" novalidate>
+<form action="{{route('admin.restaurants.store')}}" method="POST" enctype="multipart/form-data">
 @endif 
 
     @csrf
