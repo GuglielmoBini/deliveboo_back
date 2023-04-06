@@ -35,7 +35,11 @@ class RestaurantController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $restaurant = Restaurant::with('user', 'types')->find($id);
+        if (!$restaurant) return response(null, 404);
+        if ($restaurant->image) $restaurant->image = url('storage/' . $restaurant->image);
+
+        return response()->json($restaurant);
     }
 
     /**

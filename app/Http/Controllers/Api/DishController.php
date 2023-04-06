@@ -35,7 +35,11 @@ class DishController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $dish = Dish::where('is_visible', true)->with('restaurant', 'orders')->find($id);
+        if (!$dish) return response(null, 404);
+        if ($dish->image) $dish->image = url('storage/' . $dish->image);
+
+        return response()->json($dish);
     }
 
     /**
