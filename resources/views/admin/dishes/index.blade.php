@@ -32,7 +32,7 @@
                             @csrf
                             <span>Pubblica</span>
                             <button type="submit" class="btn btn-outline p-0" id="toggle">
-                                <i class="fa-solid fa-2x fa-toggle-{{ $dish->is_visible ? 'on' : 'off' }} {{ $dish->is_visible ? 'text-success' : 'text-danger' }}"></i>
+                                <i class="fa-solid fa-2x fa-toggle-{{ $dish->is_visible ? 'on' : 'off' }} {{ $dish->is_visible ? 'custom-text-title' : 'text-custom-secondary' }}"></i>
                             </button>
                         </form>
 					</div>
