@@ -10,7 +10,7 @@
             @isset($res->image)
             <img src="{{ asset('storage/' . $res->image) }}" class="img-fluid rounded-start" alt="$res->name">
             @else
-            <img src="{{ asset('storage/upload/placeholder-image.jpg') }}" class="img-fluid rounded-start" alt="immagine non caricata">
+            <img src="{{ asset('storage/upload/placeholder-image.jpg') }}" class="img-fluid rounded-top" alt="immagine non caricata">
             @endisset
           </div>
           <div class="col-md-7">
