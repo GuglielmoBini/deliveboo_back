@@ -27,15 +27,18 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $restaurants = Restaurant::All();
 
-    // dd(Auth::user());
-
+    
     foreach ($restaurants as $restaurant) {
         if ($restaurant->user_id == Auth::user()->id) {
+
             $res = $restaurant;
+            return view('dashboard', compact('res'));
+            
         }
     }
 
-    return view('dashboard', compact('res'));
+    return to_route('admin.restaurants.create');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
