@@ -14,20 +14,20 @@
                         <label class="mb-2 form-label" for="price">Prezzo</label>
                         <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price', $dish->price)}}" id="price" name="price">
                     </div>
-                    <div class="col-12 my-4">
+                    <div class="col-8 my-4">
                             <label class="mb-2 form-label" for="description">Descrizione</label>
-                            <textarea class="form-control" rows="12" name="description" id="description">{{old('description', $dish->description)}}</textarea>
+                            <textarea class="form-control" rows="15" name="description" id="description">{{old('description', $dish->description)}}</textarea>
                     </div>
-                    {{-- <div class="w-50">
+                    <div class="col-4 my-4">
                         <div>
                             <label class="mb-2" for="image">Immagine piatto</label>
                             <input type="file" class="form-control" name="image" id="image">
                         </div>
                             
-                        <div>
+                        <div class="mt-3">
                             <img src="{{asset('storage/' . $dish->image)}}" class="img-fluid rounded" alt="{{$dish->name}}"id="preview">
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="col-3">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="is_visible" name="is_visible" @if(old('is_visible', $dish->is_visible)) checked @endif>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-start my-3">
                     <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2">Torna indietro</a>
                     <button type="submit" class="btn btn-custom-secondary"><i class="fa-solid fa-share-from-square me-1"></i>Salva</button>
                 </div>
