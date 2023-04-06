@@ -136,8 +136,12 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        // $restaurant->user()->detach();
+
+        $restaurant->delete();
+
+        return to_route('http://localhost:5174/');
     }
 }
