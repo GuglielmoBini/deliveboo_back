@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Dish;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,26 +51,33 @@ class ProfileController extends Controller
         ]);
 
         $restaurants = Restaurant::All();
+        $dishes = Dish::all();
 
         $user = $request->user();
-        
+
         Auth::logout();
-        
-        foreach($restaurants as $restaurant) {
-            
-            if($restaurant->user_id == $user->id) {
-    
-                if($restaurant->image) Storage::delete($restaurant->image);
+
+        foreach ($restaurants as $restaurant) {
+
+            if ($restaurant->user_id == $user->id) {
+
+                foreach ($dishes as $dish) {
+                    if ($dish->restaurant_id == $restaurant->id) {
+                        $dish->delete();
+                    }
+                }
+
+                if ($restaurant->image) Storage::delete($restaurant->image);
 
                 $restaurant->delete();
             }
         }
 
         $user->delete();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return Redirect::to('http://localhost:5174');
     }
 }
