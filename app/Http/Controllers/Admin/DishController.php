@@ -158,7 +158,7 @@ class DishController extends Controller
     public function toggle(Dish $dish)
     {
         $dish->is_visible = !$dish->is_visible;
-        $action = $dish->is_visible ? 'pubblicato con successo' : 'depubblicato';
+        $action = $dish->is_visible ? 'pubblicato con successo' : 'salvato come bozza';
         $dish->save();
 
         return to_route('admin.dishes.index')->with('type', 'info')->with('msg', "Il piatto $dish->name è stato $action");

@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Dashboard')
-
 @section('content')
 <div class="container">
     <h1 class="text-start my-5">Ciao {{ Auth::user()->name }}</h1>
@@ -39,8 +37,8 @@
                 </div>
 
                 <div class="d-flex justify-content-start m-3">
-                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center m-0 pb-2" href="{{route('admin.dishes.index')}}">Menù</a>
-                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center ms-2 pb-2" href="{{ route('admin.restaurants.edit', $res->id) }}">Modifica</a>
+                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center m-0" href="{{route('admin.dishes.index')}}">Menù</a>
+                  <a class="btn btn-small btn-custom-secondary d-flex align-items-center ms-2" href="{{ route('admin.restaurants.edit', $res->id) }}">Modifica</a>
                 </div>
 
             </div>
