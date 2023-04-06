@@ -47,7 +47,7 @@
         </div>
 
         <!-- checkboxes for type of restaurant -->
-        <div>
+        <div class="mt-3">
             @foreach($types as $type)
             <input type="checkbox" value="{{$type->id}}" id="type-{{$type->name}}" name="types[]"
              @if(in_array($type->id, old('types', $restaurant_types ?? []))) checked @endif>
