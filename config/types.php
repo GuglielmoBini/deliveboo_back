@@ -10,7 +10,7 @@
         'name'=>'Carne'
     ],[
         'image'=>'upload/hamburger-14.jpg',
-        'name'=>'Hamburger'
+        'name'=>'Burger'
     ],[
         'image'=>'upload/dessert-7.jpg',
         'name'=>'Dessert'
