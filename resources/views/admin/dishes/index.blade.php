@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-end mt-4 mb-3">
-        <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary">Aggiungi Piatto</a>
+        <a href="{{ route('admin.dishes.create') }}" class="btn btn-custom-secondary"><i class="fa-solid fa-plus me-2"></i>Aggiungi Piatto</a>
+        <a href="{{route('dashboard')}}" class="btn btn-custom-secondary ms-2"><i class="fa-solid fa-reply me-2"></i>Indietro</a>
     </div>    
     <div class="row row-cols-1">
         {{-- <div class=" d-flex justify-content-start"> --}}

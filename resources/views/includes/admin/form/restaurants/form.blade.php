@@ -63,6 +63,9 @@
     </div>
 
     <button type="submit" class="btn btn-custom-secondary mb-4"><i class="fa-solid fa-upload me-2"></i>{{ $restaurant->exists ? 'Aggiorna' : 'Carica'}}</button>
+    @if($restaurant->exists)
+    <a href="{{route('dashboard')}}" class="btn btn-custom-secondary mb-4"><i class="fa-solid fa-reply me-2"></i>Indietro</a>
+    @endif
 
 </form>
 

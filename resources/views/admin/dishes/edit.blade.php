@@ -36,8 +36,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-start my-3">
-                    <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2">Torna indietro</a>
-                    <button type="submit" class="btn btn-custom-secondary"><i class="fa-solid fa-share-from-square me-1"></i>Salva</button>
+                    <a href="{{route('admin.dishes.index')}}" class="btn btn-custom-secondary me-2"><i class="fa-solid fa-reply me-2"></i>Indietro</a>
+                    <button type="submit" class="btn btn-custom-secondary"><i class="fa-solid fa-share-from-square me-2"></i>Salva</button>
                 </div>
         </form>
     </div>
