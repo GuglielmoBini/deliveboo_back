@@ -17,7 +17,7 @@
                     </figure>
                     @else
                     <figure class="rounded-top">
-                        <img src="http://127.0.0.1:8000/storage/upload/placeholder-image.jpg" class="card-img-top img-custom" alt="{{$dish->name}}">
+                        <img src="{{ asset('storage/' . 'upload/placeholder-image.jpg') }}" class="card-img-top img-custom" alt="{{$dish->name}}">
                     </figure>
                     @endisset
         

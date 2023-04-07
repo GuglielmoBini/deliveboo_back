@@ -5,8 +5,8 @@
         'restaurant_id'=>1,
         'name'=>'margherita',
         'description'=>'mozzarella e pomodoro',
-        'image'=>'upload/pizza-9',
-        'price'=>5.00 ,
+        'image'=>'upload/pizza-9.jpg',
+        'price'=>5.00,
         'is_visible'=>1
     ],[
         'restaurant_id'=>1,
