@@ -54,3 +54,7 @@ body {
 .bg-custom-primary {
     background-color: var(--d-blue);
 }
+
+.traslate-down {
+    transform: translate(0px, 10px);
+}

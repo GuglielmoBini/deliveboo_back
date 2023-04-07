@@ -12,19 +12,20 @@
                 </div>
                 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto d-flex justify-content-end mt-3">
+                <ul class="navbar-nav ml-auto d-flex justify-content-end traslate-down mt-3">
                     @auth
+                    <li><a class="p-0 d-none d-md-block d-xs-none size me-3 hover-underline-animation" href="http://localhost:5174/">goHome( )</a></li>
                     <!-- <a class="p-0 size me-3 hover-underline-animation" href="">showRestaurant()</a> -->
-                    <a class="p-0 d-none d-md-block d-xs-none size me-3 hover-underline-animation" href="{{ route('admin.orders.index') }}">showOrders()</a>
+                    <li><a class="p-0 d-none d-md-block d-xs-none size me-3 hover-underline-animation" href="{{ route('admin.orders.index') }}">showOrders( )</a></li>
                     @endauth
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('login') }}">logIn()</a>
+                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('login') }}">logIn( )</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('register') }}">createAccount()</a>
+                        <a class="p-0 size me-3 hover-underline-animation" href="{{ route('register') }}">createAccount( )</a>
                     </li>
                     @endif
                     @else
@@ -34,12 +35,13 @@
                         </a>
                         
                         <div class="dropdown-menu dropdown-menu-right traslate" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark d-sm-block d-md-none" href="{{ route('admin.orders.index') }}">showOrders()</a>
+                            <a class="dropdown-item text-dark d-sm-block d-md-none" href="http://localhost:5174/">goHome( )</a>
+                            <a class="dropdown-item text-dark d-sm-block d-md-none" href="{{ route('admin.orders.index') }}">showOrders( )</a>
                             {{-- <a class="dropdown-item text-dark" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a> --}}
-                            <a class="dropdown-item text-dark" href="{{ url('profile') }}">{{__('Profile')}}</a>
+                            <a class="dropdown-item text-dark" href="{{ url('profile') }}">{{__('showProfile( )')}}</a>
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('logOut( )') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
