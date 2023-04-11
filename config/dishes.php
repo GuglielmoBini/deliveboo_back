@@ -42,35 +42,35 @@
         'name'=>'Margherita',
         'description'=>'Impasto lievitato 48h, pomodorini vesuviani, mozzarela campana, basilico, olio d\'oliva.',
         'price'=>6.00,
-        'image' => 'pizza-9.jpg',
+        'image' => 'upload/pizza-9.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>2,
         'name'=>'La Rustica',
         'description'=>'Impasto soffice e croccante, mozzarella campana, patate dell\'orto, pancetta dolce.',
         'price'=>10.00,
-        'image' => 'pizza-4.jpg',
+        'image' => 'upload/pizza-4.jpg',
         'is_visible'=>0
     ],[
         'restaurant_id'=>2,
         'name'=>'Estate',
         'description'=>'Impasto lievitato 48h, pomodori all\'insalata, rucola dell\'orto.',
         'price'=>8.00 ,
-        'image' => 'pizza-6.jpg',
+        'image' => 'upload/pizza-6.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>2,
         'name'=>'Patatine Fritte',
         'description'=>'Patate nostrante, forma classica, fritte.',
         'price'=>4.00 ,
-        'image' => 'patatine-fritte.jpg',
+        'image' => 'upload/patatine-fritte.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>2,
         'name'=>'Chocolate Cake',
         'description'=>'Delizioso tortino al cioccolato.',
         'price'=>4.00 ,
-        'image' => 'dessert-5.jpg',
+        'image' => 'upload/dessert-5.jpg',
         'is_visible'=>1
         //!-----------------------
     ],[
@@ -78,28 +78,28 @@
         'name'=>'Farfalle al pesto',
         'description'=>'Pasta fresca fatta in casa con pesto di basilico dello chef.',
         'price'=>8.00 ,
-        'image' => 'pasta-8.jpg',
+        'image' => 'upload/pasta-8.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
         'name'=>'Lasagna della tradizione',
         'description'=>'Pasta fresca tirata a mano, ragu di carne cotto a fuoco lento per un giorno, basilico dell\'orto, olio d\'oliva.',
         'price'=>15.00 ,
-        'image' => 'pasta-5.jpg',
+        'image' => 'upload/pasta-5.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
         'name'=>'Fritto italiano',
         'description'=>'Frittura mista all\'italiana.',
         'price'=>6.00 ,
-        'image' => 'meat-14.jpg',
+        'image' => 'upload/meat-14.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
         'name'=>'Filetto Saporito',
         'description'=>'Filetto dolce di vitellino trattato.',
         'price'=>15.00 ,
-        'image' => 'meat-12.jpg',
+        'image' => 'upload/meat-12.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>3,
