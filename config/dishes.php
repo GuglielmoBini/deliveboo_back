@@ -130,7 +130,7 @@
         'name'=>'Giallo-Rosso',
         'price'=>5.00 ,
         'description'=>'Hamburger di alta qualità condito con doppia salsa. ',
-        'image'=>'upload/meat-15.jpg',
+        'image'=>'upload/hamburger-15.jpg',
         'is_visible'=>1
     ],[
         'restaurant_id'=>4,
@@ -391,7 +391,7 @@
         'restaurant_id'=>12,
         'name'=>'Sushi Zen',
         'description'=>'Questo piatto è ricco di sapori in equilibrio. Pesce fresco e verdure di stagione accompagnate da salse e spezie.',
-        'image'=> 'upload/ristorante-sushi-10.jpg',
+        'image'=> 'upload/sushi-10.jpg',
         'price'=>13.00 ,
         'is_visible'=>1
     ],[
