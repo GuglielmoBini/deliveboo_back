@@ -13,7 +13,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::where('is_visible', true)->with('restaurant', 'orders')->get();
+        $dishes = Dish::where('is_visible', true)->get();
 
         foreach ($dishes as $dish) {
             if ($dish->image) $dish->image = url('storage/' . $dish->image);
@@ -35,7 +35,7 @@ class DishController extends Controller
      */
     public function show(string $id)
     {
-        $dish = Dish::where('is_visible', true)->with('restaurant', 'orders')->find($id);
+        $dish = Dish::where('is_visible', true)->find($id);
         if (!$dish) return response(null, 404);
         if ($dish->image) $dish->image = url('storage/' . $dish->image);
 
