@@ -42,6 +42,67 @@ Route::get('/dashboard', function () {
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//----------------------------------------------------------------------
+// PAYMENT ROUTES - Front End
+Route::get('/payments', function() {
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey'),
+    ]);
+
+    $token=$gateway->ClientToken()->generate();
+    return view('payment_form', [
+        'token' => $token
+    ]);
+
+});
+
+//PAYMENT - Back End (effectibe payment in post)
+Route::post('/checkout', function (Request $request){
+
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey'),
+    ]);
+
+    $amount = $request->amount;
+    $nonce = $request->payment_method_nonce;
+
+    $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'options' => [
+            'submitForSettlment' => true
+        ]
+    ]);
+
+    if ($result->success) {
+        $transaction = $result->transaction;
+        //header("Location: transaction.php?id=" . $transaction->id);
+
+        return back()->with('success_message', 'Transaction successfull. The ID is:'. $transaction->id);
+    } else {
+        $errorString = "";
+        foreach($result->errors->deepAll() as $error){
+            $errorString .= 'Error: ' . $error->code . ': ' . $error->message . '\n';
+        }
+
+        //$_SESSION["errors"] = $errorString;
+        //header("Location: index.php");
+
+        return back()->withErrors('An error occured with message: ' . $result->message);
+
+    }
+
+});
+
+//----------------------------------------------------------------------
+
+
 
 Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
     // Code below groups all the CRUD's routes
