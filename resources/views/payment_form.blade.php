@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Payment')
-
-<main>
-
+@section('content') 
+<div class="container">
     @if (session('success_message'))
         <div class="alert alert-success">
             {{ session('success_message') }}
         </div>
     @endif
-
+    
     @if(count($errors)>0)
         <div>
             <ul>
@@ -18,8 +17,8 @@
             </ul>
         </div>
     @endif
-
-    <div class="flex-center position-ref full-height">
+    
+    {{-- <div class="flex-center position-ref full-height">
         <div class="content">
             <form id="payment-form" action="#" method="post"></form>
             <section>
@@ -27,14 +26,14 @@
                     <span class="input-label">Amount</span>
                     <div class="input-wrapper amount-wrapper">
                         <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value=10>
-
+    
                     </div>
                 </label>
             </section>
         </div>
-    </div>
-
-
+    </div> --}}
+    
+    
     <!-- loro -->
     <form method="post" id="payment-form" action="{{ url('/checkout') }}">
         @csrf
@@ -46,21 +45,22 @@
                         value="10">
                 </div>
             </label>
-
+    
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
             </div>
         </section>
-
+    
         <input id="nonce" name="payment_method_nonce" type="hidden" />
         <button class="button" type="submit"><span>Test Transaction</span></button>
     <form>
+</div>   
+@endsection
     <!-- fineloro -->
-
-</main>
 
 
 <!-- SCRIPTING -->
+@section('scripts')    
 <script src="https://js.braintreegateway.com/web/dropin/1.36.1/js/dropin.min.js"></script> 
 <script>
         var form = document.querySelector('#payment-form');
@@ -108,3 +108,4 @@
             expiInput.value = expirationInput.value.replace(/(\d{2})/, '$1/').trim();
         });
 </script>
+@endsection

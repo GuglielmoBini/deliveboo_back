@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,23 +29,21 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $restaurants = Restaurant::All();
 
-    
+
     foreach ($restaurants as $restaurant) {
         if ($restaurant->user_id == Auth::user()->id) {
 
             $res = $restaurant;
             return view('dashboard', compact('res'));
-            
         }
     }
 
     return to_route('admin.restaurants.create');
-
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 //----------------------------------------------------------------------
 // PAYMENT ROUTES - Front End
-Route::get('/payments', function() {
+Route::get('/payments', function () {
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
         'merchantId' => config('services.braintree.merchantId'),
@@ -52,15 +51,14 @@ Route::get('/payments', function() {
         'privateKey' => config('services.braintree.privateKey'),
     ]);
 
-    $token=$gateway->ClientToken()->generate();
+    $token = $gateway->ClientToken()->generate();
     return view('payment_form', [
         'token' => $token
     ]);
-
 });
 
 //PAYMENT - Back End (effectibe payment in post)
-Route::post('/checkout', function (Request $request){
+Route::post('/checkout', function (Request $request) {
 
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
@@ -76,7 +74,7 @@ Route::post('/checkout', function (Request $request){
         'amount' => $amount,
         'paymentMethodNonce' => $nonce,
         'options' => [
-            'submitForSettlment' => true
+            'submitForSettlement' => true
         ]
     ]);
 
@@ -84,10 +82,10 @@ Route::post('/checkout', function (Request $request){
         $transaction = $result->transaction;
         //header("Location: transaction.php?id=" . $transaction->id);
 
-        return back()->with('success_message', 'Transaction successfull. The ID is:'. $transaction->id);
+        return back()->with('success_message', 'Transazione avvenuta con successo. Il tuo ID acquirente è: ' . $transaction->id);
     } else {
         $errorString = "";
-        foreach($result->errors->deepAll() as $error){
+        foreach ($result->errors->deepAll() as $error) {
             $errorString .= 'Error: ' . $error->code . ': ' . $error->message . '\n';
         }
 
@@ -95,9 +93,7 @@ Route::post('/checkout', function (Request $request){
         //header("Location: index.php");
 
         return back()->withErrors('An error occured with message: ' . $result->message);
-
     }
-
 });
 
 //----------------------------------------------------------------------
