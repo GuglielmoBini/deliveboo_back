@@ -35,7 +35,7 @@
     
     
     <!-- loro -->
-    <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+    <form method="post" id="payment-form" action="{{ url('/checkout') }}" class="d-flex flex-column justify-content-center align-items-center mt-5">
         @csrf
         <section>
             <label for="amount">
