@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use vendor\braintree\braintree_php\lib\Braintree\Gateway;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,7 @@ Route::get('/payments', function () {
     ]);
 
     $token = $gateway->ClientToken()->generate();
-    return view('payment_form', [
+    return view('payments', [
         'token' => $token
     ]);
 });
@@ -68,14 +69,15 @@ Route::post('/checkout', function (Request $request) {
     ]);
 
     $amount = $request->amount;
-    $nonce = $request->payment_method_nonce;
+    //$nonce = $request->payment_method_nonce;
 
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
-        'paymentMethodNonce' => $nonce,
+        //'paymentMethodNonce' => $nonce,
         'options' => [
             'submitForSettlement' => true
         ]
+
     ]);
 
     if ($result->success) {

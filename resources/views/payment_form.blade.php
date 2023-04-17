@@ -8,7 +8,7 @@
         </div>
     @endif
     
-    @if(count($errors)>0)
+    {{-- @if(count($errors)>0)
         <div>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -16,7 +16,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
     
     {{-- <div class="flex-center position-ref full-height">
         <div class="content">
@@ -35,34 +35,78 @@
     
     
     <!-- loro -->
-    <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+    <form method="post" id="payment-form" action="{{ url('/checkout') }}" class="row justify-content-between mt-5"> 
         @csrf
 
-        <label for="address">Indirizzo</label>
-        <input type="text" name="delivery_address" id="address">
+        <div class="col-4 mt-3">
+          <label for="address" class="form-label">Indirizzo</label>
+          <input  type="text" name="delivery_address" id="address" class="form-control">
+        </div>
 
-        <label for="name">Nome</label>
-        <input type="text" name="customer_name" id="name">
+        <div class="col-4 mt-3">
+          <label for="name" class="form-label">Nome</label>
+          <input class="form-control"  type="text" name="customer_name" id="name">
+        </div>
 
-        <label for="surname">Cognome</label>
-        <input type="text" name="customer_surname" id="surname">
+        <div class="col-4 mt-3">
+          <label for="surname" class="form-label">Cognome</label>
+          <input class="form-control"  type="text" name="customer_surname" id="surname">
+        </div> 
 
-        <label for="phone-number">Numero di telefono</label>
-        <input type="text" name="customer_phone_number" id="phone-number">
+        <div class="col-3 mt-4">
+          <label for="amount" class="form-label">amount</label>
+          <input class="form-control"  type="number" name="amount" id="amount">
+        </div> 
 
-        <label for="email">Email</label>
-        <input type="text" name="customer_email" id="email">
+        <div class="col-3 mt-4">
+          <label for="phone-number" class="form-label">Numero di telefono</label>
+          <input class="form-control"  type="text" name="customer_phone_number" id="phone-number">
+        </div>
 
-        <label for="card-number" id="card-number">Card Number</label>
-        <div id="card-number"></div>
+        <div class="col-3 mt-4">
+          <label for="email" class="form-label">Email</label>
+          <input class="form-control"  type="text" name="customer_email" id="email">
+        </div>
+        
 
-        <label for="cvv" id="cvv">CVV</label>
-        <div id="cvv"></div>
 
-        <label for="expiration-date" id="expiration-date">Expiration Date</label>
-        <div id="expiration-date"></div>
+        <div class="col-4 mt-3" >
+          <label for="card-number"  class="form-label">Card Number</label>
+          {{-- <input type="text" name="card-number" id="card-number" class="form-control "> --}}
+          <div id="card-number" class="form-control"></div>
+        </div> 
 
-        <input type="submit" value="Pay" disabled />
+
+        <div class="col-4 mt-3">
+          <label for="cvv"  class="form-label">CVV</label>
+          {{-- <input type="text" name="ccv" id="cvv" class="form-control "> --}}
+          <div id="cvv" class="form-control"></div>
+        </div>
+
+        <div class="col-4 mt-3">
+          <label for="expiration-date" class="form-label">Expiration Date</label> 
+          {{-- <input type="text" name="expiration-date" id="expiration-date" class="form-control">   --}}
+          <div id="expiration-date" class="form-control"></div>
+        </div>
+
+      <!--=================================== -->
+        
+        
+        {{-- <div id="card-number" class="col-4">
+        </div>
+
+        <div class="col-4">
+          <div id="cvv" >
+        </div> 
+        </div>
+
+        
+        <div id="expiration-date" class="col-4">
+        </div> --}}
+
+        <input type="hidden" name="payment_method_nonce" id="nonce"  />
+        <button type="submit" class="btn btn-custom-secondary">Paga</button>
+
     <form>
 </div>   
 @endsection
@@ -74,7 +118,7 @@
 <script src="https://js.braintreegateway.com/web/3.92.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.92.1/js/hosted-fields.min.js"></script>
     <script>
-      var form = document.querySelector('#my-sample-form');
+      var form = document.querySelector('#payment-form');
       var submit = document.querySelector('input[type="submit"]');
 
       braintree.client.create({
@@ -135,7 +179,9 @@
 
               // If this was a real integration, this is where you would
               // send the nonce to your server.
-              console.log('Got a nonce: ' + payload.nonce);
+              //console.log('Got a nonce: ' + payload.nonce);
+              document.querySelector('#nonce').value = payload.nonce;
+              form.submit();
             });
           }, false);
         });
