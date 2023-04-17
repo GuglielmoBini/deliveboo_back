@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\Api\OrderController;
-use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
 use Illuminate\Http\Request;
@@ -31,7 +30,3 @@ Route::apiResource('orders', OrderController::class);
 Route::apiResource('restaurants', RestaurantController::class);
 // API for Types
 Route::apiResource('types', TypeController::class);
-
-// API for payments
-Route::get('payments/generate', [PaymentController::class, 'generate']);
-Route::post('payments/make/payment', [PaymentController::class, 'makePayment']);
