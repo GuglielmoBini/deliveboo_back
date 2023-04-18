@@ -54,7 +54,7 @@ Route::get('/payments', function () {
     $token = $gateway->ClientToken()->generate();
     return view('payment_form', [
         'token' => $token
-    ]);
+    ])->name('payments');
 });
 
 //PAYMENT - Back End (effectibe payment in post)
