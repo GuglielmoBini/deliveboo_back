@@ -22,34 +22,43 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $data = $request->all();
+        $validator = Validator::make($data, [
             'customer_name' => 'required|string|max:50',
             'customer_surname' => 'required|string|max:50',
-            'customer_address' => 'required|string|min:5|max:50',
+            'delivery_address' => 'required|string|min:5|max:50',
             'customer_email' => 'required|string',
             'customer_phone_number' => 'nullable|numeric|digits:10',
+            'total_price' => 'required|numeric'
         ], [
             'customer_name.required' => 'Il nome è obbligatorio',
             'customer_surname.required' => 'Il cognome è obbligatorio',
             'customer_name.max' => 'Il nome può contenere un massimo di 50 caratteri',
             'customer_surname.max' => 'Il cognome può contenere un massimo di 50 caratteri',
-            'customer_address.min' => 'L\'indirizzo di consegna deve contenere almeno 5 caratteri',
-            'customer_address.required' => 'L\'indirizzo di consegna è obbligatorio',
-            'customer_address.max' => 'L\'indirizzo di consegna può contenere un massimo di 50 caratteri',
+            'delivery_address.min' => 'L\'indirizzo di consegna deve contenere almeno 5 caratteri',
+            'delivery_address.required' => 'L\'indirizzo di consegna è obbligatorio',
+            'delivery_address.max' => 'L\'indirizzo di consegna può contenere un massimo di 50 caratteri',
             'customer_email.required' => 'L\'indirizzo email è obbligatorio',
             'customer_phone_number.numeric' => 'Il numero di telefono inserito è invalido',
             'customer_phone_number.digits' => 'Il numero di telefono inserito è invalido',
 
         ]);
 
-        // $data = $request->all();
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
 
-        // $order = new Order();
 
-        // $order->fill($data);
+        $order = new Order();
 
-        // $order->isPaid = false;
-        $order = Order::make($data);
+        //$order->fill($data);
+        $order->delivery_address = $data['delivery_address'];
+        $order->customer_name = $data['customer_name'];
+        $order->customer_surname = $data['customer_surname'];
+        $order->customer_phone_number = $data['customer_phone_number'];
+        $order->customer_email = $data['customer_email'];
+        $order->total_price = $data['total_price'];
+        $order->is_paid = false;
 
         $order->save();
     }
