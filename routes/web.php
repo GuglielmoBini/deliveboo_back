@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,19 +29,75 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $restaurants = Restaurant::All();
 
-    
+
     foreach ($restaurants as $restaurant) {
         if ($restaurant->user_id == Auth::user()->id) {
 
             $res = $restaurant;
             return view('dashboard', compact('res'));
-            
         }
     }
 
     return to_route('admin.restaurants.create');
-
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//----------------------------------------------------------------------
+// PAYMENT ROUTES - Front End
+Route::get('/payments', function () {
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey'),
+    ]);
+
+    $token = $gateway->ClientToken()->generate();
+    return view('payment_form', [
+        'token' => $token
+    ]);
+});
+
+//PAYMENT - Back End (effectibe payment in post)
+Route::post('/checkout', function (Request $request) {
+
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey'),
+    ]);
+
+    $amount = $request->amount;
+    $nonce = $request->payment_method_nonce;
+
+    $result = $gateway->transaction()->sale([
+        'amount' => $amount,
+        'paymentMethodNonce' => $nonce,
+        'options' => [
+            'submitForSettlement' => true
+        ]
+    ]);
+
+    if ($result->success) {
+        $transaction = $result->transaction;
+        //header("Location: transaction.php?id=" . $transaction->id);
+
+        return back()->with('success_message', 'Transazione avvenuta con successo. Il tuo ID acquirente è: ' . $transaction->id);
+    } else {
+        $errorString = "";
+        foreach ($result->errors->deepAll() as $error) {
+            $errorString .= 'Error: ' . $error->code . ': ' . $error->message . '\n';
+        }
+
+        //$_SESSION["errors"] = $errorString;
+        //header("Location: index.php");
+
+        return back()->withErrors('An error occured with message: ' . $result->message);
+    }
+});
+
+//----------------------------------------------------------------------
+
 
 
 Route::middleware('auth')->prefix('/admin')->name('admin.')->group(function () {
