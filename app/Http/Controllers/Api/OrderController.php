@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dish;
+use App\Models\DishOrder;
 use App\Models\Order;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -61,6 +63,19 @@ class OrderController extends Controller
         $order->is_paid = false;
 
         $order->save();
+        dd('ciao');
+
+        // 1- importare modello dish_order
+        // 2- creare istanza dish_order
+        // 3- riempire i campi e save()
+        // foreach ($data['dish_id'] as $key => $value) {
+        //     $dish_order = new DishOrder();
+        //     $dish_order->dish_id = $value;
+        //     $dish_order->amount = $data['amount'][$key];
+        //     $dish_order->order_id = $order->order_id;
+
+        //     $dish_order->save();
+        // };
     }
 
     /**
