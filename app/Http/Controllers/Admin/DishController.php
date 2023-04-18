@@ -101,7 +101,11 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dishes.edit', compact('dish'));
+        if (Auth::user()->id === $dish->restaurant_id) {
+            return view('admin.dishes.edit', compact('dish'));
+        } else {
+            return to_route('admin.dishes.index');
+        }
     }
 
     /**
