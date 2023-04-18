@@ -29,42 +29,49 @@
         </div>
 
         <!-- Input to upload image -->
-        <div class="col-12 mt-4">
-            <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
-            <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
+        <div class="col-12 mt-4 d-flex">
+            <div class="col-8">
+                <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
+
+                <!-- textarea for Restaurant's description -->
+                <div class="col-12 mt-4">
+                    <h4><label class="form-label" for="restaurant-description">Descrizione</label></h4>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="restaurant-description" name="description" placeholder="Inserisci una brece descrizione del tuo locale..." cols="50" rows="10">{{ old('description', $restaurant->description) }}</textarea>
+                    @error('description')
+                    <div class="text-danger p-1">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <!-- checkboxes for type of restaurant -->
+                <div class="mt-3">
+                    @foreach($types as $type)
+                    <input type="checkbox" value="{{$type->id}}" id="type-{{$type->name}}" name="types[]"
+                    @if(in_array($type->id, old('types', $restaurant_types ?? []))) checked @endif>
+                    <label class="me-2" for="type-{{$type->name}}">
+                        {{$type->name}}
+                    </label>
+                    @endforeach
+                    @error('types')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>  
+
+            {{-- image preview --}}
+            <div class="col-4 p-4 mt-1">
+                <img src="{{asset('storage/' . $restaurant->image)}}" class="img-fluid rounded" alt="{{$restaurant->name}}"id="preview">
+            </div>
             @error('image')
             <div class="text-danger p-1">{{ $message }}</div>
             @enderror
-        </div>
 
-        <!-- textarea for Restaurant's description -->
-        <div class="col-12 mt-4">
-            <h4><label class="form-label" for="restaurant-description">Descrizione</label></h4>
-            <textarea class="form-control @error('description') is-invalid @enderror" id="restaurant-description" name="description" placeholder="Inserisci una brece descrizione del tuo locale..." cols="50" rows="10">{{ old('description', $restaurant->description) }}</textarea>
-            @error('description')
-            <div class="text-danger p-1">{{ $message }}</div>
-            @enderror
         </div>
-
-        <!-- checkboxes for type of restaurant -->
-        <div class="mt-3">
-            @foreach($types as $type)
-            <input type="checkbox" value="{{$type->id}}" id="type-{{$type->name}}" name="types[]"
-             @if(in_array($type->id, old('types', $restaurant_types ?? []))) checked @endif>
-            <label class="me-2" for="type-{{$type->name}}">
-                {{$type->name}}
-            </label>
-            @endforeach
-            @error('types')
-            <div class="text-danger">{{$message}}</div>
-            @enderror
-        </div>
-    
     </div>
 
     <button type="submit" class="btn btn-custom-secondary mb-4"><i class="fa-solid fa-upload me-2"></i>{{ $restaurant->exists ? 'Aggiorna' : 'Carica'}}</button>
     @if($restaurant->exists)
-    <a href="{{route('dashboard')}}" class="btn btn-custom-secondary mb-4"><i class="fa-solid fa-reply me-2"></i>Indietro</a>
+    <a href="{{route('dashboard')}}" class="btn btn-custom-secondary mb-4" id="go-back"><i class="fa-solid fa-reply me-2"></i>Indietro</a>
     @endif
 
 </form>
@@ -76,3 +83,28 @@
     <button class="btn btn-outline-danger" onclick="return confirm('Sicuro che vuoi cancellare il ristorante?')"><i class="fa-solid fa-trash-can"></i></button>
 </form>
 @endif -->
+
+@section('scripts')
+<script>
+const fileInput = document.getElementById('restaurant-image');
+const preview = document.getElementById('preview');
+const placeholder = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png'
+const backButton = document.getElementById('go-back');
+
+if (!backButton) {
+    preview.src = placeholder
+}
+fileInput.addEventListener('change', () => {
+    if(fileInput.files && fileInput.files[0]){
+        const reader = new FileReader();
+        reader.readAsDataURL(fileInput.files[0]);
+        reader.onload = e => {
+            preview.src = e.target.result;
+        };
+    }else{
+        preview.src = placeholder;
+    }
+});
+
+</script>
+@endsection
