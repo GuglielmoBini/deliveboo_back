@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Payment')
 @section('content') 
-<div class="container">
+<div class="container pt-5">
     @if (session('success_message'))
         <div class="alert alert-success">
             {{ session('success_message') }}
         </div>
+        
     @endif
     
     @if(count($errors)>0)
@@ -52,7 +53,7 @@
         </section>
     
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="button" type="submit"><span>Test Transaction</span></button>
+        <button class="btn btn-custom-secondary" type="submit"><span>PAGA</span></button>
     <form>
 </div>   
 @endsection
