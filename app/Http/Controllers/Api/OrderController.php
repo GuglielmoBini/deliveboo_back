@@ -47,6 +47,10 @@ class OrderController extends Controller
 
         $order->fill($data);
 
+        $order->isPaid = false;
+
+        $order->save();
+
         return to_route('payments');
     }
 
