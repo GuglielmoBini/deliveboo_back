@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -21,7 +22,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'customer_name' => 'required|string|max:50',
             'customer_surname' => 'required|string|max:50',
             'customer_address' => 'required|string|min:5|max:50',
@@ -41,17 +42,16 @@ class OrderController extends Controller
 
         ]);
 
-        $data = $request->all();
+        // $data = $request->all();
 
-        $order = new Order();
+        // $order = new Order();
 
-        $order->fill($data);
+        // $order->fill($data);
 
-        $order->isPaid = false;
+        // $order->isPaid = false;
+        $order = Order::make($data);
 
         $order->save();
-
-        return to_route('payments');
     }
 
     /**
