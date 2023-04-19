@@ -60,21 +60,13 @@ class OrderController extends Controller
         $order->customer_phone_number = $data['customer_phone_number'];
         $order->customer_email = $data['customer_email'];
         $order->total_price = $data['total_price'];
-        $order->is_paid = false;
+        $order->is_paid = true;
 
         $order->save();
 
         // 1- importare modello dish_order
         // 2- creare istanza dish_order
         // 3- riempire i campi e save()
-        // foreach ($data['dishes_id'] as $key => $value) {
-        //     $dish_order = new DishOrder();
-        //     $dish_order->dish_id = $value;
-        //     $dish_order->amount = $data['amount'][$key];
-        //     $dish_order->order_id = $order->id;
-
-        //     $dish_order->save();
-        // };
 
         for ($i = 0; $i < count($data['dishes_id']); $i++) {
             $dish_order = new DishOrder();

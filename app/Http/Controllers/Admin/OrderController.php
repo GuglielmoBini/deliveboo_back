@@ -31,8 +31,8 @@ class OrderController extends Controller
         $user_dishes = DB::table('dishes')->where('restaurant_id', '=', $user_restaurant);
         dd($user_dishes);
         */
-       
-        
+
+
         //taking each user by id
         $userId = Auth::user()->id;
 
@@ -41,30 +41,30 @@ class OrderController extends Controller
 
         //taking specific user
         $user_restaurant = null;
-        foreach($restaurants as $restaurant){
-            if($restaurant->user_id == $userId){
+        foreach ($restaurants as $restaurant) {
+            if ($restaurant->user_id == $userId) {
                 $user_restaurant = $restaurant;
             }
         }
-        
+
         //taking each dish
         $dishes = Dish::All();
-        
+
         //taking each order of every dish
         $dishes_orders = DishOrder::All();
 
 
         $user_dishes = [];
         $user_dish_orders = [];
-        foreach($dishes as $dish){
-            if($dish->restaurant_id == $user_restaurant->id){
-                $user_dishes[]=$dish;
+        foreach ($dishes as $dish) {
+            if ($dish->restaurant_id == $user_restaurant->id) {
+                $user_dishes[] = $dish;
             }
         }
 
-        foreach($user_dishes as $user_dish){
-            foreach($dishes_orders as $dish_order){
-                if($dish_order->dish_id == $user_dish->id) {
+        foreach ($user_dishes as $user_dish) {
+            foreach ($dishes_orders as $dish_order) {
+                if ($dish_order->dish_id == $user_dish->id) {
                     $user_dish_orders[] = $dish_order;
                 }
             }
@@ -74,14 +74,14 @@ class OrderController extends Controller
         $orders = Order::All();
 
         $user_orders = [];
-        foreach($orders as $order) {
-            foreach($user_dish_orders as $user_dish_order){
-                if($user_dish_order->order_id == $order->id){
+        foreach ($orders as $order) {
+            foreach ($user_dish_orders as $user_dish_order) {
+                if ($user_dish_order->order_id == $order->id) {
                     $user_orders[] = $order;
                 }
             }
         }
-           
+
         return view('admin.orders.index', compact('user_orders'));
     }
 

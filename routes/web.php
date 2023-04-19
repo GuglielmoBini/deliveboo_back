@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Models\Restaurant;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,11 @@ Route::get('/dashboard', function () {
 
 //----------------------------------------------------------------------
 // PAYMENT ROUTES - Front End
-Route::get('/payments', function () {
+Route::get('/payments', function (Order $order) {
+
+    $allOrders = Order::orderBy('id', 'DESC')->get();
+    $order = $allOrders['0'];
+
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
         'merchantId' => config('services.braintree.merchantId'),
@@ -54,7 +59,7 @@ Route::get('/payments', function () {
     $token = $gateway->ClientToken()->generate();
     return view('payment_form', [
         'token' => $token
-    ]);
+    ], compact('order'));
 })->name('payments');
 
 //PAYMENT - Back End (effectibe payment in post)
