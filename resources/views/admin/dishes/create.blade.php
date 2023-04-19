@@ -7,11 +7,11 @@
                 <div class="row mt-5 mb-3">
                     <div class="col-6 ">
                         <label class="mb-2 form-label" for="name">Nome piatto</label>
-                        <input type="text" class="form-control" name="name" value="{{old('name')}}" id="name">
+                        <input type="text" class="form-control" name="name" value="{{old('name')}}" id="name" required>
                     </div>
                     <div class="col-6 ">
                         <label class="mb-2 form-label" for="price">Prezzo</label>
-                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price')}}"id="price"  name="price">
+                        <input type="number" class="form-control" step="0.01" min="0" max="999,99" value="{{old('price')}}"id="price"  name="price" required>
                     </div>
                     <div class="col-8 my-4">
                             <label class="mb-2 form-label" for="description">Descrizione</label>

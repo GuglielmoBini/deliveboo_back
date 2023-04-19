@@ -1,6 +1,6 @@
 @if($restaurant->exists)
 <!-- form edit -->
-<form action="{{route('admin.restaurants.update', $restaurant->id)}}" method="POST" enctype="multipart/form-data" novalidate>
+<form action="{{route('admin.restaurants.update', $restaurant->id)}}" method="POST" enctype="multipart/form-data">
 @method('PUT')
 
 @else
@@ -32,7 +32,7 @@
         <div class="col-12 mt-4 d-flex">
             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-8">
                 <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
-                <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine...">
 
                 <!-- textarea for Restaurant's description -->
                 <div class="col-12 mt-4">
