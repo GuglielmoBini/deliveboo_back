@@ -23,6 +23,8 @@
 
 @section('scripts')
     <script>
-
+        setInterval(() => {
+            window.location.replace("http://localhost:5174/");
+        }, 4000);
     </script>
 @endsection
