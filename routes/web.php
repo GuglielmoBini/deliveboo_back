@@ -41,6 +41,10 @@ Route::get('/dashboard', function () {
     return to_route('admin.restaurants.create');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/payment-success', function () {
+    return view('payment_success');
+})->name('payment-success');
+
 //----------------------------------------------------------------------
 // PAYMENT ROUTES - Front End
 Route::get('/payments', function () {
