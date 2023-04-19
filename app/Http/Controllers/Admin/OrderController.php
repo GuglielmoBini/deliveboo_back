@@ -77,9 +77,14 @@ class OrderController extends Controller
         foreach ($orders as $order) {
             foreach ($user_dish_orders as $user_dish_order) {
                 if ($user_dish_order->order_id == $order->id) {
-                    $user_orders[] = $order;
+                    if ($user_orders == []) {
+                        $user_orders[] = $order;
+                    } elseif ($user_orders[count($user_orders) - 1]['id'] !== $order->id) {
+                        $user_orders[] = $order;
+                    }
                 }
             }
+            //  && $user_orders[count($user_orders) - 1]
         }
 
         return view('admin.orders.index', compact('user_orders'));
