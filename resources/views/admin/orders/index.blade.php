@@ -36,6 +36,7 @@
                 <td>{{ $order->getDateDiff('created_at') }}</td>
                 <td>{{ $order->getDate('updated_at', 'd-m-Y H:i:s') }}</td>
             </tr>
+            {{-- @endif --}}
             @empty
             <tr>
                 <th scope="row" colspan="10" class="text-center">Non ci sono ordini</th>
