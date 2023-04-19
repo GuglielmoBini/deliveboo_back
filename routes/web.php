@@ -91,7 +91,8 @@ Route::post('/checkout', function (Request $request) {
         $transaction = $result->transaction;
         //header("Location: transaction.php?id=" . $transaction->id);
 
-        return back()->with('success_message', 'Transazione avvenuta con successo. Il tuo ID acquirente è: ' . $transaction->id);
+        // return back()->with('success_message', 'Transazione avvenuta con successo. Il tuo ID acquirente è: ' . $transaction->id);
+        return to_route('payment-success');
     } else {
         $errorString = "";
         foreach ($result->errors->deepAll() as $error) {

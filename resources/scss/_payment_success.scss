@@ -1,6 +1,28 @@
-.d-blue-bg {
-    background-color: var(--d-blue);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+.ps-bg {
+    height: calc(100vh - 120px);
+
+    h2,
+    h3 {
+        color: var(--d-blue);
+    }
+
+    .d-blue-bg {
+        background-color: var(--d-blue);
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+
+        .white-bg {
+            background-color: white;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+
+            i {
+                line-height: 220px;
+                color: var(--d-blue);
+                font-size: 150px;
+            }
+        }
+    }
 }
