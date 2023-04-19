@@ -30,7 +30,7 @@
 
         <!-- Input to upload image -->
         <div class="col-12 mt-4 d-flex">
-            <div class="col-8">
+            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-8">
                 <h4><label class="form-label" for="restaurant-image">Immagine</label></h4>
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="restaurant-image" value="{{ old('image', $restaurant->image) }}" name="image" placeholder="Inserisci un'immagine..." required>
 
@@ -59,7 +59,7 @@
             </div>  
 
             {{-- image preview --}}
-            <div class="col-4 p-4 mt-1">
+            <div class="d-sm-none d-md-block d-none d-sm-block p-4 mt-1">
                 <img src="{{asset('storage/' . $restaurant->image)}}" class="img-fluid rounded" alt="{{$restaurant->name}}"id="preview">
             </div>
             @error('image')
