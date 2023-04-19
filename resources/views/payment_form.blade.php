@@ -47,7 +47,7 @@
                 <div>{{ $order->total_price }}</div>
             </label>
     
-            <div class="bt-drop-in-wrapper">
+            <div class="bt-drop-in-wrapper mb-3">
                 <div id="bt-dropin"></div>
             </div>
         </section>
