@@ -12,7 +12,8 @@
                 </div>
                 
                 <!-- Right Side Of Navbar -->
-                @if (!Route::is('payments') || !Route::is('payment-success'))    
+                @if (!Route::is('payments'))
+                @if (!Route::is('payment-success'))    
                 <ul class="navbar-nav ml-auto d-flex justify-content-end traslate-down mt-3">
                     @auth
                     <li><a class="p-0 d-none d-md-block d-xs-none size me-3 hover-underline-animation" href="http://localhost:5174/">goHome( )</a></li>
@@ -52,6 +53,7 @@
                     </li>
                     @endguest
                 </ul>
+                @endif
                 @endif
             </div>
         </div>
