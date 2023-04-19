@@ -29,7 +29,7 @@ class OrderController extends Controller
             'customer_name' => 'required|string|max:50',
             'customer_surname' => 'required|string|max:50',
             'delivery_address' => 'required|string|min:5|max:50',
-            'customer_email' => 'required|string',
+            'customer_email' => 'required|email',
             'customer_phone_number' => 'nullable|numeric|digits:10',
             'total_price' => 'required|numeric'
         ], [
@@ -63,19 +63,27 @@ class OrderController extends Controller
         $order->is_paid = false;
 
         $order->save();
-        dd('ciao');
 
         // 1- importare modello dish_order
         // 2- creare istanza dish_order
         // 3- riempire i campi e save()
-        // foreach ($data['dish_id'] as $key => $value) {
+        // foreach ($data['dishes_id'] as $key => $value) {
         //     $dish_order = new DishOrder();
         //     $dish_order->dish_id = $value;
         //     $dish_order->amount = $data['amount'][$key];
-        //     $dish_order->order_id = $order->order_id;
+        //     $dish_order->order_id = $order->id;
 
         //     $dish_order->save();
         // };
+
+        for ($i = 0; $i < count($data['dishes_id']); $i++) {
+            $dish_order = new DishOrder();
+            $dish_order->dish_id = $data['dishes_id'][$i];
+            $dish_order->amount = $data['amounts'][$i];
+            $dish_order->order_id = $order->id;
+
+            $dish_order->save();
+        }
     }
 
     /**
