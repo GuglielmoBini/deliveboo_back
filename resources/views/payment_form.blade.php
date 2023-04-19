@@ -3,17 +3,17 @@
 @section('content') 
 <div class="container">
     @if (session('success_message'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-5">
             {{ session('success_message') }}
         </div>
     @endif
     
     @if(count($errors)>0)
-        <div>
+        <div class="mt-5">
             <ul>
-                @foreach ($errors->all() as $error)
+                {{-- @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
-                @endforeach
+                @endforeach --}}
             </ul>
         </div>
     @endif
@@ -39,11 +39,12 @@
         @csrf
         <section>
             <label for="amount">
-                <span class="input-label">Amount</span>
+                <span class="input-label">Prezzo totale</span>
                 <div class="input-wrapper amount-wrapper">
                     <input id="amount" name="amount" type="tel" min="1" placeholder="Amount"
-                        value="10">
+                        value="{{ $order->total_price }}" hidden>
                 </div>
+                <div>{{ $order->total_price }}</div>
             </label>
     
             <div class="bt-drop-in-wrapper">
@@ -52,7 +53,10 @@
         </section>
     
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="button" type="submit"><span>Test Transaction</span></button>
+        <div class="d-flex">
+            <button class="btn btn-custom-secondary" type="submit"><span>Conferma Pagamento</span></button>
+            <a class="btn btn-custom-secondary ms-3" href="http://localhost:5174/">Torna alla Home</a>
+        </div>
     <form>
 </div>   
 @endsection
